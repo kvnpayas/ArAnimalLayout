@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ArAnimalLayout</string>
+    <string name="home_menu">Home</string>
+    <string name="category_menu">Category</string>
+    <string name="info_menu">Info</string>
+    <string name="settings_menu">Settings</string>
+</resources>
