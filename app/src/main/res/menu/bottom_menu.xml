@@ -6,7 +6,7 @@
         android:title="@string/home_menu"/>
 
     <item android:id="@+id/category"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/baseline_menu_24"
         android:title="@string/category_menu"/>
 
     <item android:enabled="false"
