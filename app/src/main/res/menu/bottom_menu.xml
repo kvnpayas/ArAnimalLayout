@@ -13,11 +13,11 @@
         android:title=""/>
 
     <item android:id="@+id/info"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/baseline_assignment_late_24"
         android:title="@string/info_menu"/>
 
     <item android:id="@+id/settings"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/baseline_app_settings_alt_24"
         android:title="@string/settings_menu"/>
 
 </menu>
