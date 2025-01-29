@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.ArAnimalLayout" parent="Base.Theme.ArAnimalLayout" />
+
+    <style name="MyBottomNavigationView.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/accent</item>
+        <item name="android:width">50dp</item>
+        <item name="android:height">50dp</item>
+    </style>
 </resources>
