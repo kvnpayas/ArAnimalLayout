@@ -6,4 +6,7 @@
     <string name="settings_menu">Settings</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="back_button_description">Back</string>
+    <string name="back_to_categories">Back to Categories</string>
 </resources>

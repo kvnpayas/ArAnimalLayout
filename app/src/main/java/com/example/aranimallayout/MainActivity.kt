@@ -5,10 +5,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.findNavController
+import android.view.View
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +25,22 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val bottomAppBar = findViewById<BottomAppBar>(R.id.bottomAppBar)
+        val floatingActionButton = findViewById<FloatingActionButton>(R.id.floatingActionCamera)
 
         // Get the NavController from the NavHostFragment
         val navController = navHostFragment.navController
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.animalFragment) { // Replace with your AnimalFragment's ID
+                bottomAppBar.visibility = View.GONE
+                floatingActionButton.visibility = View.GONE
+            } else {
+                bottomAppBar.visibility = View.VISIBLE
+                floatingActionButton.visibility = View.VISIBLE
+
+            }
+        }
 
         bottomNavigationView.setupWithNavController(navController)
     }

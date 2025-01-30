@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "name": "Mammals",
+    "imageUrl": "ic_mammals_foreground",
+    "animals": [
+      {
+        "id": 101,
+        "name": "Lion",
+        "description": "King of the jungle",
+        "imageUrl": "ic_lion_foreground"
+      },
+      {
+        "id": 102,
+        "name": "Elephant",
+        "description": "Largest land animal",
+        "imageUrl": "ic_elephant_foreground"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Amphibians",
+    "imageUrl": "ic_amphibian_foreground",
+    "animals": [
+      {
+        "id": 201,
+        "name": "Frog",
+        "description": "Jumping amphibian",
+        "imageUrl": "ic_frog_foreground"
+      },
+      {
+        "id": 202,
+        "name": "Salamander",
+        "description": "Slimy amphibian",
+        "imageUrl": "ic_salamander_foreground"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Reptiles",
+    "imageUrl": "ic_reptiles_foreground",
+    "animals": [
+      {
+        "id": 301,
+        "name": "Snake",
+        "description": "Slithering reptile",
+        "imageUrl": "ic_snake_foreground"
+      },
+      {
+        "id": 302,
+        "name": "Lizard",
+        "description": "Scaly reptile",
+        "imageUrl": "ic_lizard_foreground"
+      },
+      {
+        "id": 303,
+        "name": "Turtles",
+        "description": "Turtle",
+        "imageUrl": "ic_turtle_foreground"
+      },
+      {
+        "id": 304,
+        "name": "Chameleons",
+        "description": "Chameleons",
+        "imageUrl": "ic_chameleons_foreground"
+      },
+      {
+        "id": 305,
+        "name": "Crocodiles",
+        "description": "Crocodiles",
+        "imageUrl": "ic_crocodiles_foreground"
+      },
+      {
+        "id": 306,
+        "name": "Iguanas",
+        "description": "Iguanas",
+        "imageUrl": "ic_iguanas_foreground"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Birds",
+    "imageUrl": "ic_birds_foreground",
+    "animals": [
+      {
+        "id": 401,
+        "name": "Eagle",
+        "description": "Bird of prey",
+        "imageUrl": "ic_eagle_foreground"
+      },
+      {
+        "id": 402,
+        "name": "Parrot",
+        "description": "Colorful bird",
+        "imageUrl": "ic_parrot_foreground"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Fish",
+    "imageUrl": "ic_fish_foreground",
+    "animals": [
+      {
+        "id": 501,
+        "name": "Goldfish",
+        "description": "Common pet fish",
+        "imageUrl": "ic_goldfish_foreground"
+      },
+      {
+        "id": 502,
+        "name": "Shark",
+        "description": "Ocean predator",
+        "imageUrl": "ic_shark_foreground"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Insects",
+    "imageUrl": "ic_insects_foreground",
+    "animals": [
+      {
+        "id": 601,
+        "name": "Butterfly",
+        "description": "Colorful insect",
+        "imageUrl": "ic_butterfly_foreground"
+      },
+      {
+        "id": 602,
+        "name": "Ant",
+        "description": "Social insect",
+        "imageUrl": "ic_ant_foreground"
+      }
+    ]
+  }
+]

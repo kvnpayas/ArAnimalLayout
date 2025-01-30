@@ -1,3 +1,8 @@
-package com.example.aranimallayout// Or your chosen package
+package com.example.aranimallayout 
 
-data class Category(val name: String, val imageResId: Int)
+data class Category(
+    val id: Int,
+    val name: String,
+    val imageUrl: String,
+    val animals: List<Animal>
+)
