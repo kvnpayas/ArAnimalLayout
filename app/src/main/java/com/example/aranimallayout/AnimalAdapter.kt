@@ -12,7 +12,8 @@ class AnimalAdapter(private val animals: List<Animal>) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(animal: Animal) {
             binding.animalName.text = animal.name
-            val imageResId = binding.root.context.resources.getIdentifier(animal.imageUrl, "mipmap", binding.root.context.packageName)
+            binding.animalDescription.text = animal.briefDescription
+            val imageResId = binding.root.context.resources.getIdentifier(animal.imageUrl, "drawable", binding.root.context.packageName)
             binding.animalImage.setImageResource(imageResId)
         }
     }

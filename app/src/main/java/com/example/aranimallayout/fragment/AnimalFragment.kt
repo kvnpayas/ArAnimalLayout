@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.aranimallayout.AnimalAdapter
 import com.example.aranimallayout.R
 import com.example.aranimallayout.util.JsonUtil
-import android.widget.ImageButton
 import androidx.appcompat.widget.AppCompatButton
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.fragment.findNavController
 
 class AnimalFragment : Fragment() {

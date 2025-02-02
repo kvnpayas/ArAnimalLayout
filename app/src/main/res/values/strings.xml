@@ -9,4 +9,7 @@
 
     <string name="back_button_description">Back</string>
     <string name="back_to_categories">Back to Categories</string>
+
+    <string name="animal_name">Animal Name</string>
+    <string name="animal_description">Animal Description</string>
 </resources>

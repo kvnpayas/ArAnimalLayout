@@ -1,139 +1,253 @@
 [
   {
     "id": 1,
-    "name": "Mammals",
-    "imageUrl": "ic_mammals_foreground",
-    "animals": [
-      {
-        "id": 101,
-        "name": "Lion",
-        "description": "King of the jungle",
-        "imageUrl": "ic_lion_foreground"
-      },
-      {
-        "id": 102,
-        "name": "Elephant",
-        "description": "Largest land animal",
-        "imageUrl": "ic_elephant_foreground"
-      }
-    ]
-  },
-  {
-    "id": 2,
     "name": "Amphibians",
     "imageUrl": "ic_amphibian_foreground",
     "animals": [
       {
-        "id": 201,
-        "name": "Frog",
+        "id": 101,
+        "name": "Caecilian",
+        "briefDescription": "Caecilians are fascinating creatures! They are a group of limbless, serpentine amphibians that look somewhat like worms or snakes.",
         "description": "Jumping amphibian",
-        "imageUrl": "ic_frog_foreground"
+        "imageUrl": "amphibian_caecilian"
       },
       {
-        "id": 202,
+        "id": 102,
+        "name": "Frog",
+        "briefDescription": "Frogs are small, tailless amphibians belonging to the order Anura. They are known for their distinctive jumping abilities, croaking sounds, bulging eyes, and smooth, moist skin.",
+        "description": "Jumping amphibian",
+        "imageUrl": "amphibian_frog"
+      },
+      {
+        "id": 103,
+        "name": "Newt",
+        "briefDescription": "Newts are small, semi-aquatic amphibians belonging to the family Salamandridae.",
+        "description": "Slimy amphibian",
+        "imageUrl": "ic_salamander_foreground"
+      },
+      {
+        "id": 104,
         "name": "Salamander",
+        "briefDescription": "Salamanders are a diverse group of amphibians belonging to the order Caudata. They are characterized by their slender bodies, long tails, and typically moist, smooth skin.",
+        "description": "Slimy amphibian",
+        "imageUrl": "ic_salamander_foreground"
+      },
+      {
+        "id": 105,
+        "name": "Toad",
+        "briefDescription": "While the term \"toad\" is often used interchangeably with \"frog,\" toads typically refer to members of the family Bufonidae.",
         "description": "Slimy amphibian",
         "imageUrl": "ic_salamander_foreground"
       }
     ]
   },
   {
+    "id": 2,
+    "name": "Birds",
+    "imageUrl": "ic_birds_foreground",
+    "animals": [
+      {
+        "id": 201,
+        "name": "Black-nape Oriole",
+        "briefDescription": "The Black-naped Oriole (Oriolus chinensis) is a colorful bird belonging to the oriole family, Oriolidae. It is widely distributed across parts of Asia, including the Philippines",
+        "description": "Bird of prey",
+        "imageUrl": "birds_kilyawan"
+      },
+      {
+        "id": 202,
+        "name": "Chicken",
+        "briefDescription": "The chicken (Gallus gallus domesticus) is a domesticated bird that is widely kept for its meat and eggs. Chickens are highly valued in the Philippines, where they are an important part of the local diet and culture.",
+        "description": "Colorful bird",
+        "imageUrl": "birds_chicken"
+      },
+      {
+        "id": 203,
+        "name": "Dove",
+        "briefDescription": "The dove is a bird belonging to the family Columbidae, which also includes pigeons. Doves are known for their gentle appearance, soft cooing calls, and symbolic significance representing peace and love.",
+        "description": "Colorful bird",
+        "imageUrl": "birds_dove"
+      },
+      {
+        "id": 204,
+        "name": "Duck",
+        "briefDescription": "A duck is a waterfowl belonging to the family Anatidae. Ducks are known for their webbed feet, broad bills, and waddling gait. They are commonly found in freshwater and coastal habitats such as ponds, rivers, lakes, and wetlands.",
+        "description": "Colorful bird",
+        "imageUrl": "birds_duck"
+      },
+      {
+        "id": 205,
+        "name": "Eagle",
+        "briefDescription": "The eagle is a large bird of prey belonging to the family Accipitridae. Eagles are known for their impressive size, powerful build, keen eyesight, and strong talons. They are apex predators, often found at the top of the food chain in their habitats.",
+        "description": "Colorful bird",
+        "imageUrl": "birds_eagle"
+      }
+    ]
+  },
+  {
     "id": 3,
-    "name": "Reptiles",
-    "imageUrl": "ic_reptiles_foreground",
+    "name": "Fish",
+    "imageUrl": "ic_fish_foreground",
     "animals": [
       {
         "id": 301,
-        "name": "Snake",
-        "description": "Slithering reptile",
-        "imageUrl": "ic_snake_foreground"
+        "name": "Catfish",
+        "briefDescription": "A catfish is a type of fish known for its distinctive barbels, which resemble a cat's whiskers. These freshwater and saltwater fish belong to the order Siluriformes and can be found in various habitats around the world, including rivers, lakes, and coastal areas.",
+        "description": "Common pet fish",
+        "imageUrl": "fish_catfish"
       },
       {
         "id": 302,
-        "name": "Lizard",
-        "description": "Scaly reptile",
-        "imageUrl": "ic_lizard_foreground"
+        "name": "Gourami",
+        "briefDescription": "The gourami is a group of freshwater fish belonging to the family Osphronemidae. They are known for their beautiful colors, unique behaviors, and labyrinth organ, which allows them to breathe air from the surface.",
+        "description": "Ocean predator",
+        "imageUrl": "fish_gourami"
       },
       {
         "id": 303,
-        "name": "Turtles",
-        "description": "Turtle",
-        "imageUrl": "ic_turtle_foreground"
+        "name": "Milkfish",
+        "briefDescription": "The milkfish (Chanos chanos) is an important and widely cultivated fish in the Philippines. It is known for its mild flavor and firm, white flesh, making it a popular choice in Filipino cuisine.",
+        "description": "Ocean predator",
+        "imageUrl": "fish_milkfish"
       },
       {
         "id": 304,
-        "name": "Chameleons",
-        "description": "Chameleons",
-        "imageUrl": "ic_chameleons_foreground"
+        "name": "Mudfish",
+        "briefDescription": "The mudfish refers to several types of fish that can survive in muddy or swampy conditions, often thriving in environments with low oxygen levels.",
+        "description": "Ocean predator",
+        "imageUrl": "fish_mudfish"
       },
       {
         "id": 305,
-        "name": "Crocodiles",
-        "description": "Crocodiles",
-        "imageUrl": "ic_crocodiles_foreground"
-      },
-      {
-        "id": 306,
-        "name": "Iguanas",
-        "description": "Iguanas",
-        "imageUrl": "ic_iguanas_foreground"
+        "name": "Tilapia",
+        "briefDescription": "Tilapia is a common name for a group of freshwater fish belonging to the family Cichlidae. These fish are known for their adaptability, fast growth, and mild flavor. Tilapia farming is a significant industry in many parts of the world, including the Philippines.",
+        "description": "Ocean predator",
+        "imageUrl": "fish_tilapia"
       }
     ]
   },
   {
     "id": 4,
-    "name": "Birds",
-    "imageUrl": "ic_birds_foreground",
+    "name": "Insects",
+    "imageUrl": "ic_insects_foreground",
     "animals": [
       {
         "id": 401,
-        "name": "Eagle",
-        "description": "Bird of prey",
-        "imageUrl": "ic_eagle_foreground"
+        "name": "Ant",
+        "briefDescription": "Ants are small, social insects belonging to the family Formicidae. They are known for their complex social structures, cooperative behaviors, and ability to thrive in various environments. Ants play important roles in ecosystems, including soil aeration, seed dispersal, and acting as predators or scavengers.",
+        "description": "Colorful insect",
+        "imageUrl": "insects_ant"
       },
       {
         "id": 402,
-        "name": "Parrot",
-        "description": "Colorful bird",
-        "imageUrl": "ic_parrot_foreground"
+        "name": "Bee",
+        "briefDescription": "Bees are flying insects belonging to the superfamily Apoidea. They are best known for their role in pollination and, in the case of honey bees, for producing honey and beeswax. Bees are found in various habitats around the world.",
+        "description": "Social insect",
+        "imageUrl": "insects_bee"
+      },
+      {
+        "id": 403,
+        "name": "Butterfly",
+        "briefDescription": "Butterflies are beautiful, colorful insects belonging to the order Lepidoptera. They are known for their vibrant wings, delicate flight, and important role in pollination. Butterflies undergo a complete metamorphosis, transitioning from egg to caterpillar (larva), then to pupa (chrysalis), and finally emerging as an adult butterfly.",
+        "description": "Social insect",
+        "imageUrl": "insects_butterfly"
+      },
+      {
+        "id": 404,
+        "name": "Cockroach",
+        "briefDescription": "A cockroach is an insect belonging to the order Blattodea, known for its resilience, adaptability, and often being considered a household pest. Cockroaches are found in various environments around the world, including tropical and temperate regions.",
+        "description": "Social insect",
+        "imageUrl": "insects_cockroach"
+      },
+      {
+        "id": 405,
+        "name": "Mosquito",
+        "briefDescription": "Mosquitoes are small, flying insects belonging to the family Culicidae. They are known for their slender bodies, long legs, and the ability to feed on the blood of animals, including humans. Mosquitoes are often associated with the transmission of various diseases, such as dengue fever, malaria, and Zika virus.",
+        "description": "Social insect",
+        "imageUrl": "insects_mosquito"
       }
     ]
   },
   {
     "id": 5,
-    "name": "Fish",
-    "imageUrl": "ic_fish_foreground",
+    "name": "Mammals",
+    "imageUrl": "ic_mammals_foreground",
     "animals": [
       {
         "id": 501,
-        "name": "Goldfish",
-        "description": "Common pet fish",
-        "imageUrl": "ic_goldfish_foreground"
+        "name": "Carabao",
+        "briefDescription": "The carabao (Bubalus bubalis carabanesis), also known as the water buffalo, is a domesticated subspecies of the water buffalo native to the Philippines and other parts of Southeast Asia.",
+        "description": "King of the jungle",
+        "imageUrl": "mammals_carabao"
       },
       {
         "id": 502,
-        "name": "Shark",
-        "description": "Ocean predator",
-        "imageUrl": "ic_shark_foreground"
+        "name": "Cat",
+        "briefDescription": "A cat (Felis catus) is a small, carnivorous mammal that is widely kept as a pet and valued for its companionship and ability to hunt rodents. Cats are known for their agility, sharp senses, and independent nature.",
+        "description": "Largest land animal",
+        "imageUrl": "mammals_cat"
+      },
+      {
+        "id": 503,
+        "name": "Cow",
+        "briefDescription": "A cow (Bos taurus) is a domesticated mammal raised for its meat (beef), milk, and other products. Cows are known for their large, sturdy bodies and distinctive grazing behavior. They are commonly found on farms and ranches around the world.",
+        "description": "Largest land animal",
+        "imageUrl": "mammals_cow"
+      },
+      {
+        "id": 504,
+        "name": "Dog",
+        "briefDescription": "A dog (Canis lupus familiaris) is a domesticated mammal and one of the most common pets in households around the world. Dogs are known for their loyalty, companionship, and wide range of breeds that vary in size, appearance, and temperament.",
+        "description": "Largest land animal",
+        "imageUrl": "mammals_dog"
+      },
+      {
+        "id": 505,
+        "name": "Monkey",
+        "briefDescription": "Monkeys are primates belonging to the suborder Haplorhini and are known for their high intelligence, social behavior, and dexterity. Monkeys are commonly found in tropical and subtropical regions around the world.",
+        "description": "Largest land animal",
+        "imageUrl": "mammals_monkey"
       }
     ]
   },
   {
     "id": 6,
-    "name": "Insects",
-    "imageUrl": "ic_insects_foreground",
+    "name": "Reptiles",
+    "imageUrl": "ic_reptiles_foreground",
     "animals": [
       {
         "id": 601,
-        "name": "Butterfly",
-        "description": "Colorful insect",
-        "imageUrl": "ic_butterfly_foreground"
+        "name": "Crocodiles",
+        "briefDescription": "A crocodile is a large, predatory reptile belonging to the family Crocodylidae. These reptiles are known for their powerful jaws, armored skin, and strong swimming abilities. Crocodiles are found in tropical regions around the world",
+        "description": "Slithering reptile",
+        "imageUrl": "reptiles_crocodile"
       },
       {
         "id": 602,
-        "name": "Ant",
-        "description": "Social insect",
-        "imageUrl": "ic_ant_foreground"
+        "name": "Gecko",
+        "briefDescription": "A gecko is a small to medium-sized lizard belonging to the infraorder Gekkota. Geckos are known for their vocalizations, unique toe pads that enable them to climb smooth surfaces, and a variety of colors and patterns. They are found in warm climates around the world.",
+        "description": "Scaly reptile",
+        "imageUrl": "reptiles_gecko"
+      },
+      {
+        "id": 603,
+        "name": "Monitor Lizards",
+        "briefDescription": "Monitor lizards belong to the genus Varanus and are known for their large size, powerful build, and keen hunting abilities. They are highly adaptable reptiles found in a variety of habitats, including forests, savannas, and wetlands.",
+        "description": "Monitor lizards belong to the genus Varanus and are known for their large size, powerful build, and keen hunting abilities. They are highly adaptable reptiles found in a variety of habitats, including forests, savannas, and wetlands.",
+        "imageUrl": "reptiles_monitor_lizard"
+      },
+      {
+        "id": 604,
+        "name": "Snake",
+        "briefDescription": "A snake is a legless, elongated reptile belonging to the suborder Serpentes. Snakes are known for their flexible bodies, scales, and the ability to swallow prey much larger than their heads.",
+        "description": "Chameleons",
+        "imageUrl": "reptiles_snake"
+      },
+      {
+        "id": 605,
+        "name": "Turtles",
+        "briefDescription": "A turtle is a reptile belonging to the order Testudines, characterized by a bony or cartilaginous shell that acts as a shield. Turtles are found in various habitats around the world, including oceans, freshwater bodies, and land areas.",
+        "description": "Crocodiles",
+        "imageUrl": "reptiles_turtles"
       }
     ]
   }

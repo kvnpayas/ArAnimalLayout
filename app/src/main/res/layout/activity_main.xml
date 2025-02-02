@@ -32,10 +32,10 @@
             android:layout_height="match_parent"
             app:backgroundTint="@android:color/transparent"
             app:elevation="0dp"
-            app:itemIconTint="@color/black"
+            app:itemIconTint="@color/bottom_nav_icon_color"
             app:itemTextColor="@color/black"
             app:labelVisibilityMode="unlabeled"
-            app:itemActiveIndicatorStyle="@style/MyBottomNavigationView.ActiveIndicator"
+            style="@style/MyBottomNavigationView"
             app:menu="@menu/bottom_menu" />
     </com.google.android.material.bottomappbar.BottomAppBar>
 
