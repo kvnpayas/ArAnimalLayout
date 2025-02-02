@@ -33,10 +33,11 @@
             app:backgroundTint="@android:color/transparent"
             app:elevation="0dp"
             app:itemIconTint="@color/bottom_nav_icon_color"
-            app:itemTextColor="@color/black"
+            app:itemTextColor="@color/white"
             app:labelVisibilityMode="unlabeled"
             style="@style/MyBottomNavigationView"
             app:menu="@menu/bottom_menu" />
+
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -45,8 +46,9 @@
         android:layout_height="wrap_content"
         android:importantForAccessibility="no"
         android:src="@drawable/baseline_camera_24"
-        android:tint="@color/white"
-        android:layout_marginBottom="10dp"
+        app:tint="@color/white"
+        android:backgroundTint="@color/accent"
+        android:layout_marginBottom="0dp"
         app:layout_anchor="@id/bottomAppBar" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -3,6 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary">#7f601f</color>
-    <color name="accent">#e86c38</color>
+    <color name="primary">#325434</color>
+    <color name="accent">#e76020</color>
+    <color name="thirdColor">#eeb92f</color>
+    <color name="lightYellow">#ebcf86</color>
 </resources>
