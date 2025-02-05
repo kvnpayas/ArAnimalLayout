@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ArAnimalLayout</string>
+    <string name="app_name">Animal-ARApp</string>
     <string name="home_menu">Home</string>
     <string name="category_menu">Categories</string>
     <string name="info_menu">Info</string>
