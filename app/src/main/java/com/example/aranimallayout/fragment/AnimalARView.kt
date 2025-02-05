@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +20,7 @@ import com.google.ar.core.Config
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
+import androidx.navigation.fragment.findNavController
 
 
 class AnimalARView : Fragment() {
@@ -76,6 +79,41 @@ class AnimalARView : Fragment() {
         animalAdapter!!.setOnItemClickListener { modelType ->
             loadModel(modelType)
         }
+
+        val optionsButton = binding.optionsButton
+
+        // Set the OnClickListener for the optionsButton
+        optionsButton.setOnClickListener { buttonView ->
+            showPopupMenu(buttonView)
+        }
+
+    }
+
+    private fun showPopupMenu(buttonView: View) {
+        val popupMenu = PopupMenu(requireContext(), buttonView)
+        popupMenu.apply {
+            // Inflate the menu resource.
+            menuInflater.inflate(R.menu.popup_menu, menu)
+
+            // Set the OnMenuItemClickListener.
+            setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.action_categories -> {
+                        Toast.makeText(requireContext(), "Categories Clicked", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+
+                    R.id.action_back -> {
+                        findNavController().navigate(R.id.action_animalArView_to_home)
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+        }
+        // Show the popup menu.
+        popupMenu.show()
     }
 
     private fun loadModel(modelType: String) {
@@ -104,6 +142,7 @@ class AnimalARView : Fragment() {
             sceneView.planeRenderer.isVisible = false
         }
     }
+
 
     override fun onPause() {
         super.onPause()

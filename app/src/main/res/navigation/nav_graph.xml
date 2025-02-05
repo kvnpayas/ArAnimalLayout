@@ -39,7 +39,14 @@
         android:id="@+id/animalArView"
         android:name="com.example.aranimallayout.fragment.AnimalARView"
         android:label="ArSceneFragment"
-        tools:layout="@layout/arscene_view" />
+        tools:layout="@layout/arscene_view">
+        <action
+            android:id="@+id/action_animalArView_to_home"
+            app:destination="@id/home"
+            app:popUpTo="@id/animalArView"
+            app:popUpToInclusive="true" />
+    </fragment>
+
 
     <action
         android:id="@+id/action_global_animalArView"

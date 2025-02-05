@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         floatingActionButton.setOnClickListener {
             navController.navigate(R.id.action_global_animalArView)
         }
+
 
 
     }
