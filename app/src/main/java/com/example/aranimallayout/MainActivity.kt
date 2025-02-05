@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.animalFragment) { // Replace with your AnimalFragment's ID
+            if (destination.id == R.id.animalFragment || destination.id == R.id.animalArView) { // Replace with your AnimalFragment's ID
                 bottomAppBar.visibility = View.GONE
                 floatingActionButton.visibility = View.GONE
             } else {
@@ -43,5 +43,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         bottomNavigationView.setupWithNavController(navController)
+
+        floatingActionButton.setOnClickListener {
+            navController.navigate(R.id.action_global_animalArView)
+        }
+
+
     }
 }

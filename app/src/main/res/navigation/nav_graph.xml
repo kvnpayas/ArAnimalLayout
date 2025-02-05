@@ -34,4 +34,21 @@
         android:name="com.example.aranimallayout.fragment.AnimalFragment"
         android:label="fragment_animal"
         tools:layout="@layout/fragment_animal" />
+
+    <fragment
+        android:id="@+id/animalArView"
+        android:name="com.example.aranimallayout.fragment.AnimalARView"
+        android:label="ArSceneFragment"
+        tools:layout="@layout/arscene_view" />
+
+    <action
+        android:id="@+id/action_global_animalArView"
+        app:destination="@id/animalArView"
+        app:enterAnim="@anim/nav_default_enter_anim"
+        app:exitAnim="@anim/nav_default_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+
+
 </navigation>

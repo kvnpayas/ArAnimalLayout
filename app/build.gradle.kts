@@ -25,6 +25,7 @@ android {
                 "proguard-rules.pro"
             )
         }
+
     }
 
     buildFeatures {
@@ -49,6 +50,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("androidx.core:core-ktx:1.7.0")
+    implementation ("io.github.sceneview:arsceneview:0.10.0")
+
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.8.6")
 }
