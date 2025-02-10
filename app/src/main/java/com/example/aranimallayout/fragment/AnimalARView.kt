@@ -1,5 +1,4 @@
 package com.example.aranimallayout.fragment
-import com.example.aranimallayout.R
 
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -7,21 +6,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aranimallayout.AnimalFunc
-import com.example.aranimallayout.AnimalModel
+import com.example.aranimallayout.AnimalItem
+import com.example.aranimallayout.Category
+import com.example.aranimallayout.R
 import com.example.aranimallayout.databinding.ArsceneViewBinding
+import com.example.aranimallayout.util.JsonUtil
+import com.example.aranimallayout.util.RecyclerItemClickListener
 import com.google.ar.core.Config
 import io.github.sceneview.ar.ArSceneView
 import io.github.sceneview.ar.node.ArModelNode
 import io.github.sceneview.ar.node.PlacementMode
 import androidx.navigation.fragment.findNavController
-
 
 class AnimalARView : Fragment() {
 
@@ -33,7 +33,8 @@ class AnimalARView : Fragment() {
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var animalRecyclerView: RecyclerView
     private var animalAdapter: AnimalFunc? = null
-    private var animalList: List<AnimalModel>? = null
+    private var categories: List<Category> = emptyList()
+    private var currentAnimalItems: List<AnimalItem> = emptyList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,24 +53,14 @@ class AnimalARView : Fragment() {
         }
         modelNode = ArModelNode(sceneView.engine, PlacementMode.INSTANT)
 
-        animalList = ArrayList()
-        (animalList as ArrayList<AnimalModel>).apply {
-            add(AnimalModel("Cat", "models/cat.glb", "cat"))
-            add(AnimalModel("Carabao", "models/cockatoo.glb", "carabao"))
-            add(AnimalModel("Cockatoo", "models/cockatoo_parrot.glb", "cockatoo"))
-            add(AnimalModel("Cow", "models/cow.glb", "cow"))
-            add(AnimalModel("Dino", "models/brunette.glb", "dino"))
-            add(AnimalModel("Dog", "models/dog.glb", "dog"))
-            add(AnimalModel("Elephant", "models/waxwing.glb", "elephant"))
-            add(AnimalModel("Monkey", "models/waxwing.glb", "monkey"))
-            add(AnimalModel("Waxwing", "models/waxwing.glb", "waxwing"))
-        }
+        categories = JsonUtil.getCategoriesFromAssets(requireContext())
+        currentAnimalItems = categories.map { AnimalItem.CategoryItem(it) }
 
         // Initialize RecyclerView
         animalRecyclerView = binding.animalRecyclerView
         animalRecyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        animalAdapter = AnimalFunc(requireContext(), animalList as ArrayList<AnimalModel>)
+        animalAdapter = AnimalFunc(requireContext(), currentAnimalItems)
         animalRecyclerView.adapter = animalAdapter
 
         //mediaPlayer = MediaPlayer.create(requireContext(), R.raw.ad)
@@ -79,41 +70,42 @@ class AnimalARView : Fragment() {
         animalAdapter!!.setOnItemClickListener { modelType ->
             loadModel(modelType)
         }
-
-        val optionsButton = binding.optionsButton
-
-        // Set the OnClickListener for the optionsButton
-        optionsButton.setOnClickListener { buttonView ->
-            showPopupMenu(buttonView)
+        animalAdapter!!.setOnBackClickListener {
+            currentAnimalItems = categories.map { AnimalItem.CategoryItem(it) }
+            animalAdapter?.updateData(currentAnimalItems)
         }
 
-    }
-
-    private fun showPopupMenu(buttonView: View) {
-        val popupMenu = PopupMenu(requireContext(), buttonView)
-        popupMenu.apply {
-            // Inflate the menu resource.
-            menuInflater.inflate(R.menu.popup_menu, menu)
-
-            // Set the OnMenuItemClickListener.
-            setOnMenuItemClickListener { menuItem ->
-                when (menuItem.itemId) {
-                    R.id.action_categories -> {
-                        Toast.makeText(requireContext(), "Categories Clicked", Toast.LENGTH_SHORT).show()
-                        true
+        animalAdapter!!.setOnItemClickListener { animalName ->
+            loadModel(animalName)
+        }
+        animalRecyclerView.addOnItemTouchListener(
+            RecyclerItemClickListener(requireContext(), animalRecyclerView, object : RecyclerItemClickListener.OnItemClickListener {
+                override fun onItemClick(view: View, position: Int) {
+                    val clickedItem = currentAnimalItems[position]
+                    when (clickedItem) {
+                        is AnimalItem.CategoryItem -> {
+                            val animals = clickedItem.category.animals
+                            currentAnimalItems = mutableListOf<AnimalItem>(AnimalItem.BackItem).apply {
+                                addAll(animals.map { AnimalItem.AnimalData(it) })
+                            }
+                            animalAdapter?.updateData(currentAnimalItems)
+                        }
+                        is AnimalItem.AnimalData -> {
+                            val animalName = clickedItem.animal.name
+                            loadModel(animalName)
+                        }
+                        is AnimalItem.BackItem -> {
+                            currentAnimalItems = categories.map { AnimalItem.CategoryItem(it) }
+                            animalAdapter?.updateData(currentAnimalItems)
+                        }
                     }
-
-                    R.id.action_back -> {
-                        findNavController().navigate(R.id.action_animalArView_to_home)
-                        true
-                    }
-
-                    else -> false
                 }
-            }
-        }
-        // Show the popup menu.
-        popupMenu.show()
+
+                override fun onLongItemClick(view: View?, position: Int) {
+                    // Handle long item click if needed
+                }
+            })
+        )
     }
 
     private fun loadModel(modelType: String) {
@@ -146,13 +138,11 @@ class AnimalARView : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        mediaPlayer.stop()
+        //mediaPlayer.stop()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer.release()
+        //mediaPlayer.release()
     }
 }
-
-

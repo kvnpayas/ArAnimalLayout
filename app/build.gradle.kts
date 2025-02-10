@@ -54,6 +54,7 @@ dependencies {
 
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("androidx.core:core-ktx:1.7.0")
+    implementation("io.coil-kt:coil:2.5.0")
     implementation ("io.github.sceneview:arsceneview:0.10.0")
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.6")

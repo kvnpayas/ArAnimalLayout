@@ -31,13 +31,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bottomGuideline" />
 
-    <ImageButton
-        android:id="@+id/optionsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/options"
-        app:layout_constraintStart_toStartOf="@id/animalRecyclerView"
-        app:layout_constraintTop_toTopOf="@id/animalRecyclerView"/>
+<!--    <ImageButton-->
+<!--        android:id="@+id/optionsButton"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="8dp"-->
+<!--        android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--        android:src="@drawable/options"-->
+<!--        app:layout_constraintStart_toStartOf="@id/animalRecyclerView"-->
+<!--        app:layout_constraintTop_toTopOf="@id/animalRecyclerView"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

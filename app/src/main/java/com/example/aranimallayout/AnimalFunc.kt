@@ -1,51 +1,104 @@
 package com.example.aranimallayout
 
-import android.annotation.SuppressLint
-import android.content.ClipData
-import android.view.MotionEvent
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.dispose
+import coil.load
+import coil.request.CachePolicy
+import de.hdodenhof.circleimageview.CircleImageView
+
+sealed class AnimalItem {
+    data class CategoryItem(val category: Category) : AnimalItem()
+    data class AnimalData(val animal: Animal) : AnimalItem()
+    object BackItem : AnimalItem()
+}
 
 class AnimalFunc(
     private val context: Context,
-    private val animalList: ArrayList<AnimalModel>
+    private var animalItems: List<AnimalItem>
 ) : RecyclerView.Adapter<AnimalFunc.AnimalViewHolder>() {
 
     private var onItemClickListener: ((String) -> Unit)? = null
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_animal, parent, false)
-        return AnimalViewHolder(view)
-    }
-
-    @SuppressLint("DiscouragedApi")
-    override fun onBindViewHolder(holder: AnimalViewHolder, position: Int) {
-        val animal = animalList[position]
-        holder.animalName.text = animal.name
-        val imageResId = context.resources.getIdentifier(animal.imageName, "drawable", context.packageName)
-        holder.animalImage.setImageResource(imageResId)
-
-        holder.itemView.setOnClickListener {
-            onItemClickListener?.invoke(animal.name)
-        }
-    }
-
-    override fun getItemCount(): Int {
-        return animalList.size
-    }
+    private var onBackClickListener: (() -> Unit)? = null
 
     fun setOnItemClickListener(listener: (String) -> Unit) {
         onItemClickListener = listener
     }
 
-    inner class AnimalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val animalName: TextView = itemView.findViewById(R.id.animalName)
-        val animalImage: de.hdodenhof.circleimageview.CircleImageView = itemView.findViewById(R.id.animalImage)
+    fun setOnBackClickListener(listener: () -> Unit) {
+        onBackClickListener = listener
+    }
+
+    fun updateData(newAnimalItems: List<AnimalItem>) {
+        animalItems = newAnimalItems
+        notifyDataSetChanged()
+    }
+
+    class AnimalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val animalName: TextView = itemView.findViewById(R.id.animalNameCamera) // Updated ID
+        val animalImage: CircleImageView = itemView.findViewById(R.id.animalImageCamera) // Updated ID and type
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_animal, parent, false) // Updated layout file name
+        return AnimalViewHolder(itemView)
+    }
+
+    override fun onBindViewHolder(holder: AnimalViewHolder, position: Int) {
+        val currentItem = animalItems[position]
+
+        // Dispose of any previous image request
+        holder.animalImage.dispose()
+        // Clear the previous image before loading a new one
+        holder.animalImage.setImageResource(0)
+
+        when (currentItem) {
+            is AnimalItem.CategoryItem -> {
+                holder.animalName.text = currentItem.category.name
+                val imageResId = context.resources.getIdentifier(
+                    currentItem.category.imageUrl,
+                    "mipmap",
+                    context.packageName
+                )
+                holder.animalImage.load(imageResId) {
+                    memoryCachePolicy(CachePolicy.ENABLED)
+                }
+                holder.itemView.setOnClickListener {
+                    // Handle category click
+                }
+            }
+
+            is AnimalItem.AnimalData -> {
+                holder.animalName.text = currentItem.animal.name
+                val imageResId = context.resources.getIdentifier(
+                    currentItem.animal.imageUrl,
+                    "drawable",
+                    context.packageName
+                )
+                holder.animalImage.load(imageResId) {
+                    memoryCachePolicy(CachePolicy.ENABLED)
+                }
+                holder.itemView.setOnClickListener {
+                    onItemClickListener?.invoke(currentItem.animal.name)
+                }
+            }
+            is AnimalItem.BackItem -> {
+                holder.animalName.text = "Back"
+                holder.animalImage.setImageResource(R.drawable.baseline_arrow_back_24)
+                holder.itemView.setOnClickListener {
+                    onBackClickListener?.invoke()
+                }
+            }
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return animalItems.size
     }
 }
