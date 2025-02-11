@@ -40,22 +40,20 @@ class AnimalFunc(
     }
 
     class AnimalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val animalName: TextView = itemView.findViewById(R.id.animalNameCamera) // Updated ID
-        val animalImage: CircleImageView = itemView.findViewById(R.id.animalImageCamera) // Updated ID and type
+        val animalName: TextView = itemView.findViewById(R.id.animalNameCamera)
+        val animalImage: CircleImageView = itemView.findViewById(R.id.animalImageCamera)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_animal, parent, false) // Updated layout file name
+            .inflate(R.layout.item_animal, parent, false)
         return AnimalViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: AnimalViewHolder, position: Int) {
         val currentItem = animalItems[position]
 
-        // Dispose of any previous image request
         holder.animalImage.dispose()
-        // Clear the previous image before loading a new one
         holder.animalImage.setImageResource(0)
 
         when (currentItem) {
