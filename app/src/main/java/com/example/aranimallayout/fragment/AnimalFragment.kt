@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.aranimallayout.Animal
 import com.example.aranimallayout.AnimalAdapter
 import com.example.aranimallayout.R
 import com.example.aranimallayout.util.JsonUtil
@@ -26,9 +27,9 @@ class AnimalFragment : Fragment() {
         val backButton = view.findViewById<AppCompatButton>(R.id.backButton)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-
         val categoryId = arguments?.getInt("categoryId") ?: -1
         val categoryName = arguments?.getString("categoryName") ?: ""
+
         if (categoryId != -1) {
             val categories = JsonUtil.getCategoriesFromAssets(requireContext())
             val category = categories.find { it.id == categoryId }
@@ -36,6 +37,10 @@ class AnimalFragment : Fragment() {
 
             val adapter = AnimalAdapter(animals)
             recyclerView.adapter = adapter
+
+            adapter.setOnItemClickListener { animal ->
+                navigateToAnimalDetail(animal)
+            }
         }
 
         categoryNameTextView.text = categoryName
@@ -45,5 +50,12 @@ class AnimalFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun navigateToAnimalDetail(animal: Animal) {
+        val bundle = Bundle().apply {
+            putParcelable("animal", animal)
+        }
+        findNavController().navigate(R.id.action_animalFragment_to_animalDetailFragment, bundle)
     }
 }

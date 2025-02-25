@@ -36,8 +36,9 @@ object JsonUtil {
             val briefDescription = animalObject.getString("briefDescription")
             val description = animalObject.getString("description")
             val imageUrl = animalObject.getString("imageUrl")
+            val sound = animalObject.getString("sound")
 
-            val animal = Animal(id, name, briefDescription, description, imageUrl)
+            val animal = Animal(id, name, briefDescription, description, imageUrl, sound)
             animals.add(animal)
         }
         return animals

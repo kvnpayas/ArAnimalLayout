@@ -33,7 +33,11 @@
         android:id="@+id/animalFragment"
         android:name="com.example.aranimallayout.fragment.AnimalFragment"
         android:label="fragment_animal"
-        tools:layout="@layout/fragment_animal" />
+        tools:layout="@layout/fragment_animal" >
+        <action
+            android:id="@+id/action_animalFragment_to_animalDetailFragment"
+            app:destination="@id/animalDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/animalArView"
@@ -47,6 +51,11 @@
             app:popUpToInclusive="true" />
     </fragment>
 
+    <fragment
+        android:id="@+id/animalDetailFragment"
+        android:name="com.example.aranimallayout.fragment.AnimalDetailFragment"
+        android:label="fragment_animal_detail"
+        tools:layout="@layout/fragment_animal_detail" />
 
     <action
         android:id="@+id/action_global_animalArView"
