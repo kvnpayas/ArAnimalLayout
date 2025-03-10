@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.aranimallayout"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -60,4 +60,15 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.8.6")
+
+    // TensorFlow Lite
+    implementation("org.tensorflow:tensorflow-lite:2.15.0")
+    implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
+    implementation("org.tensorflow:tensorflow-lite-metadata:0.4.4")
+
+    // CameraX
+    implementation("androidx.camera:camera-core:1.4.1")
+    implementation("androidx.camera:camera-camera2:1.4.1")
+    implementation("androidx.camera:camera-lifecycle:1.4.1")
+    implementation("androidx.camera:camera-view:1.4.1")
 }

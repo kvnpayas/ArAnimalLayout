@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnScan"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:gravity="start|center_vertical"
+        android:text="Scan"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:icon="@drawable/scan_camera"
+        app:backgroundTint="@color/accent"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconSize="48dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAr"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:gravity="start|center_vertical"
+        app:backgroundTint="@color/accent"
+        android:text="AR"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:icon="@drawable/ar_camera"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconSize="48dp" />
+
+</LinearLayout>
