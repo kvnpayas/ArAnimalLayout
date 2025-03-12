@@ -68,7 +68,7 @@ class ScanAnimalFragment : Fragment() {
             val preview = Preview.Builder()
                 .build()
                 .also {
-                    it.setSurfaceProvider(binding.previewView.surfaceProvider)
+                    it.setSurfaceProvider(binding.previewViews.surfaceProvider)
                 }
 
             // Image analysis
@@ -89,7 +89,7 @@ class ScanAnimalFragment : Fragment() {
                             "No results"
                         }
                         requireActivity().runOnUiThread {
-                            binding.resultTextView.text = resultText
+                            binding.resultTextViews.text = resultText
                         }
                         imageProxy.close()
                     }

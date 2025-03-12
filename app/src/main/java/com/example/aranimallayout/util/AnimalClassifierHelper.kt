@@ -10,7 +10,6 @@ import org.tensorflow.lite.Interpreter
 import org.tensorflow.lite.support.common.FileUtil
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.support.image.ops.NormalizeOp // Correct import
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
 import java.nio.MappedByteBuffer
@@ -30,7 +29,6 @@ class AnimalClassifierHelper(
         try {
             interpreter = Interpreter(loadModelFile(modelFileName), Interpreter.Options().setNumThreads(numThreads))
             imageProcessor = ImageProcessor.Builder()
-                .add(NormalizeOp(0.0f, 255.0f))
                 .build()
         } catch (e: IOException) {
             Log.e("AnimalClassifierHelper", "Error initializing TFLite model", e)

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-parcelize")
+
 }
 
 android {
@@ -52,23 +53,39 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("androidx.core:core-ktx:1.15.0")
     implementation("io.coil-kt:coil:2.5.0")
     implementation ("io.github.sceneview:arsceneview:0.10.0")
+    {
+        exclude("com.google.flatbuffers","flatbuffers-java")
+    }
+
+
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.6")
     implementation("androidx.navigation:navigation-ui-ktx:2.8.6")
 
     // TensorFlow Lite
     implementation("org.tensorflow:tensorflow-lite:2.15.0")
+
     implementation("org.tensorflow:tensorflow-lite-support:0.4.4")
+    {
+        exclude("com.google.flatbuffers","flatbuffers-java")
+    }
     implementation("org.tensorflow:tensorflow-lite-metadata:0.4.4")
+    {
+        exclude("com.google.flatbuffers","flatbuffers-java")
+    }
 
     // CameraX
     implementation("androidx.camera:camera-core:1.4.1")
     implementation("androidx.camera:camera-camera2:1.4.1")
     implementation("androidx.camera:camera-lifecycle:1.4.1")
     implementation("androidx.camera:camera-view:1.4.1")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0") // For JSON conversion
+    implementation("com.squareup.okhttp3:okhttp:4.9.3")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 }

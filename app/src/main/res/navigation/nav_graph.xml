@@ -74,15 +74,15 @@
             android:id="@+id/action_cameraOptionFragmentt_to_animalArView"
             app:destination="@id/animalArView" />
         <action
-            android:id="@+id/action_cameraOptionFragment_to_scanAnimalFragment"
-            app:destination="@id/scanAnimalFragment" />
+            android:id="@+id/action_cameraOptionFragment_to_objectDetectionFragment"
+            app:destination="@id/objectDetectionFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/scanAnimalFragment"
-        android:name="com.example.aranimallayout.fragment.ScanAnimalFragment"
-        android:label="ScanAnimalFragment"
-        tools:layout="@layout/fragment_scan_animal" />
+        android:id="@+id/objectDetectionFragment"
+        android:name="com.example.aranimallayout.fragment.ObjectDetectionFragment"
+        android:label="ObjectDetectionFragment"
+        tools:layout="@layout/fragment_object_detection" />
 
 
 

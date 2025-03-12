@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
             if (destination.id == R.id.animalFragment ||
                 destination.id == R.id.animalArView ||
                 destination.id == R.id.cameraOptionFragment ||
-                destination.id == R.id.scanAnimalFragment
+                destination.id == R.id.objectDetectionFragment
             ) {
                 bottomAppBar.visibility = View.GONE
                 floatingActionButton.visibility = View.GONE

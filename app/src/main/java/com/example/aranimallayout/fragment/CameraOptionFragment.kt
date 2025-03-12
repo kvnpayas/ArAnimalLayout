@@ -27,7 +27,7 @@ class CameraOptionFragment : Fragment() {
         binding.btnScan.setOnClickListener {
             // Handle Scan button click (e.g., navigate to a scan fragment)
             // For now, let's just log a message
-            findNavController().navigate(R.id.action_cameraOptionFragment_to_scanAnimalFragment)
+            findNavController().navigate(R.id.action_cameraOptionFragment_to_objectDetectionFragment)
         }
 
         binding.btnAr.setOnClickListener {

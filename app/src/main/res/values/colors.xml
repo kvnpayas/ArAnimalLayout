@@ -4,6 +4,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="primary">#325434</color>
+    <color name="secondary">#5825ce</color>
     <color name="accent">#e76020</color>
     <color name="thirdColor">#eeb92f</color>
     <color name="lightYellow">#ebcf86</color>
