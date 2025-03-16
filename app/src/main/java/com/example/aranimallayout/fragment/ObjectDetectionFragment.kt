@@ -28,10 +28,13 @@ import androidx.camera.core.internal.utils.ImageUtil.rotateBitmap
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.aranimallayout.Animal
 import com.example.aranimallayout.databinding.FragmentObjectDetectionBinding
 import com.example.aranimallayout.network.RetrofitClient
 import com.example.aranimallayout.network.models.Detection
 import com.example.aranimallayout.network.models.DetectionResponse
+import com.example.aranimallayout.util.JsonUtil
+import com.google.android.filament.ToneMapper.Linear
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -44,6 +47,8 @@ import java.io.ByteArrayOutputStream
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import kotlin.math.roundToInt
+import androidx.navigation.fragment.findNavController
+import com.example.aranimallayout.R
 
 class ObjectDetectionFragment : Fragment() {
 
@@ -51,12 +56,14 @@ class ObjectDetectionFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var resultTextView: TextView
+    private lateinit var confidenceTextView: TextView
     private lateinit var capturedImageView: ImageView
     private var imageCapture: ImageCapture? = null
     private lateinit var loadingProgressBar: ProgressBar
     private lateinit var processingTextView: TextView
     private lateinit var captureAgainButton: Button
     private lateinit var captureButton: Button
+    private lateinit var viewAnimalDetailsButton: Button
     private lateinit var loadingContainer: LinearLayout
     private lateinit var resultContainer: LinearLayout
 
@@ -76,6 +83,7 @@ class ObjectDetectionFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         resultTextView = binding.resultTextView
+        confidenceTextView = binding.confidenceTextView
         capturedImageView = binding.capturedImageView
         loadingProgressBar = binding.loadingProgressBar
         processingTextView = binding.processingTextView
@@ -83,6 +91,12 @@ class ObjectDetectionFragment : Fragment() {
         loadingContainer = binding.loadingStateContainer
         resultContainer = binding.resultStateContainer
         captureButton = binding.captureButton
+        viewAnimalDetailsButton = binding.viewAnimalDetailsButton
+
+        viewAnimalDetailsButton.setOnClickListener {
+            val animalName = resultTextView.text.toString().removePrefix("Result: ").trim()
+            navigateToAnimalDetails(animalName)
+        }
 
         if (allPermissionsGranted()) {
             startCamera()
@@ -219,9 +233,11 @@ class ObjectDetectionFragment : Fragment() {
 
                                         if (detectedName in animalLabelsLower || detectedName.removeSuffix("s") in animalLabelsLower) {
                                             resultTextView.text =
-                                                "Result: ${detection.name}, Confidence: ${
-                                                    "%.2f".format(detection.confidence?.times(100))
-                                                }%"
+                                                "Result: ${detection.name}"
+                                            confidenceTextView.text = "Confidence: ${
+                                                "%.2f".format(detection.confidence?.times(100))
+                                            }%"
+                                            viewAnimalDetailsButton.visibility = View.VISIBLE
                                         } else {
                                             resultTextView.text = "Result: Unknown class detected"
                                         }
@@ -348,5 +364,30 @@ class ObjectDetectionFragment : Fragment() {
 
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
+    }
+
+    private fun navigateToAnimalDetails(animalName: String) {
+        val normalizedAnimalName = animalName.lowercase().removeSuffix("s")
+        val animal = getAnimalByName(normalizedAnimalName)
+        Log.d("ObjectDetectionFragment", "Animal Details: $animal")
+        if (animal != null) {
+            val bundle = Bundle().apply {
+                putParcelable("animal", animal)
+            }
+            findNavController().navigate(R.id.action_objectDetectionFragment_to_animalDetailFragment, bundle)
+        } else {
+            Toast.makeText(requireContext(), "Animal details not found.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun getAnimalByName(animalName: String): Animal? {
+        val categories = JsonUtil.getCategoriesFromAssets(requireContext())
+        for (category in categories) {
+            val foundAnimal = category.animals.find { it.name.equals(animalName, ignoreCase = true) }
+            if (foundAnimal != null) {
+                return foundAnimal
+            }
+        }
+        return null
     }
 }

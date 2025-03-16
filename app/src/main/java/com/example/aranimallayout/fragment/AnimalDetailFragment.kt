@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import coil.load
@@ -20,6 +21,8 @@ class AnimalDetailFragment : Fragment() {
     private var mediaPlayer: MediaPlayer? = null
     private var isPlaying = false
     private var playButton: ImageButton? = null
+    private var playButtonDesc: TextView? = null
+    private var playButtonLayout: LinearLayout? = null
     private var soundResId: Int? = null
 
     override fun onCreateView(
@@ -34,10 +37,17 @@ class AnimalDetailFragment : Fragment() {
             val animalImage = view.findViewById<ImageView>(R.id.animalDetailImage)
             val animalName = view.findViewById<TextView>(R.id.animalDetailName)
             val animalDescription = view.findViewById<TextView>(R.id.animalDetailDescription)
+            val soundDescription = view.findViewById<TextView>(R.id.soundDescription)
+            val animalScientificName = view.findViewById<TextView>(R.id.animalScientificName)
+            val animalTagalogName = view.findViewById<TextView>(R.id.animalTagalogName)
+            val animalFunFact = view.findViewById<TextView>(R.id.animalFunFact)
+            val animalLifeSpan = view.findViewById<TextView>(R.id.animalLifeSpan)
             val backButton = view.findViewById<AppCompatButton>(R.id.backButtonDetail)
             val animalNameTextView = view.findViewById<TextView>(R.id.animalNameTextView)
 //            val playButton = view.findViewById<ImageButton>(R.id.playButton)
             playButton = view.findViewById(R.id.playButton)
+            playButtonDesc = view.findViewById(R.id.playButtonDesc)
+            playButtonLayout = view.findViewById(R.id.playButtonLayout)
 
             val imageResId = resources.getIdentifier(
                 animal.imageUrl,
@@ -48,6 +58,11 @@ class AnimalDetailFragment : Fragment() {
             animalName.text = animal.name
             animalDescription.text = animal.description
             animalNameTextView.text = animal.name
+            animalScientificName.text = animal.scientificName
+            animalTagalogName.text = animal.tagalogName
+            animalFunFact.text = animal.funFact
+            animalLifeSpan.text = animal.lifeSpan
+            soundDescription.text = animal.soundDesc
 
             backButton.setOnClickListener {
                 findNavController().navigateUp()
@@ -73,7 +88,10 @@ class AnimalDetailFragment : Fragment() {
                 }
             } else {
                 // No sound for this animal, hide the play button
-                playButton?.visibility = View.GONE
+//                playButton?.visibility = View.GONE
+//                playButtonDesc?.visibility = View.GONE
+                playButtonLayout?.visibility = View.GONE
+
             }
         }
 

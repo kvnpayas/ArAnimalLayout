@@ -37,11 +37,20 @@
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/animalDescription"
+                android:id="@+id/funFact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/animal_description"
                 android:textAlignment="textStart"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="See More"
+                android:layout_marginTop="10dp"
+                android:textAlignment="textStart"
+                android:textStyle="italic|bold"
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>

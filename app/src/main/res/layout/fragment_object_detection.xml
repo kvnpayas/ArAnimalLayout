@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
@@ -18,7 +18,7 @@
     <FrameLayout
         android:id="@+id/bottom_container"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:background="@color/lightYellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,18 +28,18 @@
             android:id="@+id/captureButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Capture"
+            android:layout_gravity="center"
             android:backgroundTint="@color/accent"
             android:orientation="vertical"
-            android:layout_gravity="center"
+            android:text="Capture"
             android:visibility="visible" />
 
         <LinearLayout
             android:id="@+id/loading_state_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
+            android:orientation="vertical"
             android:visibility="gone">
 
             <ProgressBar
@@ -64,17 +64,17 @@
             android:id="@+id/result_state_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
+            android:orientation="vertical"
             android:visibility="gone">
 
             <Button
                 android:id="@+id/captureAgainButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Capture Again"
-                android:backgroundTint="@color/accent"
                 android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/accent"
+                android:text="Capture Again"
                 android:visibility="visible" />
 
             <TextView
@@ -82,9 +82,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textStyle="bold"
+                android:textColor="@color/white"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/confidenceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/viewAnimalDetailsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/accent"
+                android:text="View Details"
+                android:visibility="gone" />
+
 
         </LinearLayout>
 

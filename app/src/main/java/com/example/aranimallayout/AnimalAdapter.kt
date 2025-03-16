@@ -20,7 +20,7 @@ class AnimalAdapter(private val animals: List<Animal>) :
     class AnimalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val animalImage: ImageView = itemView.findViewById(R.id.animalImage)
         val animalName: TextView = itemView.findViewById(R.id.animalName)
-        val animalDescription: TextView = itemView.findViewById(R.id.animalDescription)
+        val funFact: TextView = itemView.findViewById(R.id.funFact)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimalViewHolder {
@@ -38,7 +38,7 @@ class AnimalAdapter(private val animals: List<Animal>) :
         )
         holder.animalImage.load(imageResId)
         holder.animalName.text = currentAnimal.name
-        holder.animalDescription.text = currentAnimal.briefDescription
+        holder.funFact.text = currentAnimal.funFact
 
         holder.itemView.setOnClickListener {
             onItemClickListener?.invoke(currentAnimal)

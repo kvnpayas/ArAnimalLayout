@@ -33,7 +33,7 @@
         android:id="@+id/animalFragment"
         android:name="com.example.aranimallayout.fragment.AnimalFragment"
         android:label="fragment_animal"
-        tools:layout="@layout/fragment_animal" >
+        tools:layout="@layout/fragment_animal">
         <action
             android:id="@+id/action_animalFragment_to_animalDetailFragment"
             app:destination="@id/animalDetailFragment" />
@@ -82,8 +82,11 @@
         android:id="@+id/objectDetectionFragment"
         android:name="com.example.aranimallayout.fragment.ObjectDetectionFragment"
         android:label="ObjectDetectionFragment"
-        tools:layout="@layout/fragment_object_detection" />
-
+        tools:layout="@layout/fragment_object_detection">
+        <action
+            android:id="@+id/action_objectDetectionFragment_to_animalDetailFragment"
+            app:destination="@id/animalDetailFragment" />
+    </fragment>
 
 
 </navigation>

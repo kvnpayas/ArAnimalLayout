@@ -34,6 +34,10 @@ class CameraOptionFragment : Fragment() {
             // Navigate to AnimalARView when AR button is clicked
             findNavController().navigate(R.id.action_cameraOptionFragmentt_to_animalArView)
         }
+
+        binding.backButtonCamera.setOnClickListener {
+            findNavController().popBackStack() // Navigate back to the previous fragment
+        }
     }
 
     override fun onDestroyView() {
