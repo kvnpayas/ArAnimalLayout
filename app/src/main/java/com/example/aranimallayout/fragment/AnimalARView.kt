@@ -112,11 +112,19 @@ class AnimalARView : Fragment() {
         val modelFile = when (modelType) {
             "Cat" -> "models/cat.glb"
             "Carabao" -> "models/waxwing.glb"
+            "CatFish" -> "models/catfish.glb"
+            "Chicken" -> "models/chicken.glb"
             "Cow" -> "models/cow.glb"
             "Dino" -> "models/brunette.glb"
             "Dog" -> "models/dog.glb"
-            "Cockatoo" -> "models/cockatoo.glb"
-            "Waxwing" -> "models/waxwing.glb"
+            "Dove" -> "models/dove.glb"
+            "Duck" -> "models/duck.glb"
+            "Eagle" -> "models/eagle.glb"
+            "Frog" -> "models/frog.glb"
+            "Monkey" -> "models/monkey.glb"
+            "Newt" -> "models/newt.glb"
+            "Salamander" -> "models/salamander.glb"
+            "Toad" -> "models/toad.glb"
             else -> {
                 Log.w("MainActivity", "Unknown model type: $modelType")
                 return
