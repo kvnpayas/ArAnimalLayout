@@ -13,8 +13,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import android.media.MediaPlayer
 
 class MainActivity : AppCompatActivity() {
+    private var mediaPlayer: MediaPlayer? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -56,6 +59,32 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.cameraOptionFragment)
         }
 
-
+        startBackgroundMusic()
     }
+
+
+    private fun startBackgroundMusic() {
+        mediaPlayer = MediaPlayer.create(this, R.raw.backgroundmusic) // Replace with your music file
+        mediaPlayer?.isLooping = true
+        mediaPlayer?.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        mediaPlayer?.pause()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mediaPlayer?.start()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer?.release()
+        mediaPlayer = null
+    }
+
+
 }
+

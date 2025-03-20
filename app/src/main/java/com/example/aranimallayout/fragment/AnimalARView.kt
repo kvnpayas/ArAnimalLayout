@@ -110,11 +110,15 @@ class AnimalARView : Fragment() {
 
     private fun loadModel(modelType: String) {
         val modelFile = when (modelType) {
+            "Ant" -> "models/ant.glb"
+            "Bee" -> "models/bee.glb"
+            "Butterfly" -> "models/butterfly.glb"
             "Cat" -> "models/cat.glb"
             "Catfish" -> "models/catfish.glb"
             "Chicken" -> "models/chicken.glb"
             "Carabao" -> "models/waxwing.glb"
             "Cow" -> "models/cow.glb"
+            "Cockroach" -> "models/cockroach.glb"
             "Crocodiles" -> "models/crocodile.glb"
             "Dog" -> "models/dog.glb"
             "Dove" -> "models/dove.glb"
@@ -124,6 +128,7 @@ class AnimalARView : Fragment() {
             "Gecko" -> "models/gecko.glb"
             "Monitor Lizards" -> "models/monitor_lizard.glb"
             "Monkey" -> "models/monkey.glb"
+            "Mosquito" -> "models/mosquito.glb"
             "Newt" -> "models/newt.glb"
             "Salamander" -> "models/salamander.glb"
             "Snake" -> "models/snake.glb"
