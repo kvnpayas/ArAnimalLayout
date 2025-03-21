@@ -38,7 +38,7 @@
         "soundDesc": "They produce squeaks when handled or clucking sounds whilst gulping air at the water's surface",
         "funFact": "Did you know that some newts shed their skin and then eat the skin? That must be a tasty snack if you are a newt!",
         "description": "Newts are small, semi-aquatic amphibians that are part of the salamander family. They are sometimes called a cross between a frog and a lizard.",
-        "imageUrl": "amphibian_frog"
+        "imageUrl": "newt"
       },
       {
         "id": 104,
@@ -50,7 +50,7 @@
         "soundDesc": "Salamanders are generally quiet, but some species may make soft clicks or squeaks during mating.",
         "funFact": "Some salamanders can regenerate lost body parts, including limbs, tails, and even parts of their heart and brain!",
         "description": "Salamanders are a group of amphibians typically characterized by their slender bodies, short legs, and long tails. They are known for their moist skin, which is often smooth and can be brightly colored or patterned. Salamanders are found in a variety of habitats, including forests, streams, and swamps, and they play a crucial role in the ecosystem as both predators and prey.",
-        "imageUrl": "amphibian_frog"
+        "imageUrl": "salamander"
       },
       {
         "id": 105,
@@ -62,7 +62,7 @@
         "soundDesc": "Rhythmic \"croak\" or \"ribbit\"",
         "funFact": "Toads have parotoid glands behind their eyes that secrete a toxin to deter predators. Despite their warty appearance, toads don't cause warts in humans.",
         "description": "Toads are a group of amphibians characterized by their dry, warty skin, short legs, and stout bodies. Unlike frogs, toads tend to have shorter hops and prefer to walk or crawl. They are often found in terrestrial habitats, such as gardens, forests, and fields, and they play an important role in controlling insect populations. Toads are generally nocturnal and are known for their distinctive mating calls during the breeding season.",
-        "imageUrl": "amphibian_frog"
+        "imageUrl": "toad"
       }
     ]
   },
@@ -81,7 +81,7 @@
         "soundDesc": "Black-naped orioles produce melodious whistles and fluty calls, often sounding like \"wheeeeeoo\" or \"keeeyoo.\"",
         "funFact": "The black-naped oriole is known for its striking yellow and black plumage, with males being entirely golden-yellow except for their black wings and tail. They are also known to be quite adaptable, thriving in various habitats including forests, gardens, and plantations",
         "description": "The black-naped oriole is a medium-sized bird with a bright yellow body, black wings, and a distinctive black band across its eyes and nape. The bill is deep pinkish. Females are like males but have more yellowish-green upperparts. Juveniles have streaked underparts. They are often found in forest canopies and are known for their beautiful songs.",
-        "imageUrl": "birds_kilyawan"
+        "imageUrl": "nape"
       },
       {
         "id": 202,
