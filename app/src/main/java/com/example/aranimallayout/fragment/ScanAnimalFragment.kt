@@ -40,7 +40,7 @@ class ScanAnimalFragment : Fragment() {
 
         // Initialize the TFLite model
         try {
-            animalClassifierHelper = AnimalClassifierHelper(requireContext(), "animal_classification.tflite", 2)
+            animalClassifierHelper = AnimalClassifierHelper(requireContext(), "", 2)
         } catch (e: Exception) {
             Log.e("ScanAnimalFragment", "Error initializing TFLite model", e)
             Toast.makeText(requireContext(), "Error initializing model", Toast.LENGTH_SHORT).show()

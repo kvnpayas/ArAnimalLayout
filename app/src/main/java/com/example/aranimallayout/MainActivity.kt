@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun startBackgroundMusic() {
-        mediaPlayer = MediaPlayer.create(this, R.raw.backgroundmusic) // Replace with your music file
+        mediaPlayer = MediaPlayer.create(this, R.raw.backgroundmusic)
         mediaPlayer?.isLooping = true
         mediaPlayer?.setVolume(backgroundMusicVolume, backgroundMusicVolume)
         mediaPlayer?.start()

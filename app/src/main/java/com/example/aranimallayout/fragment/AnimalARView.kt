@@ -1,5 +1,6 @@
 package com.example.aranimallayout.fragment
 
+import android.animation.ObjectAnimator
 import android.content.ContentValues
 import android.graphics.Bitmap
 import android.graphics.Rect
@@ -34,6 +35,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.OutputStream
 import android.os.HandlerThread
 import android.os.Looper
+import android.view.ViewTreeObserver
+import androidx.core.animation.doOnEnd
 import com.example.aranimallayout.Animal
 import com.example.aranimallayout.R
 
@@ -80,6 +83,9 @@ class AnimalARView : Fragment() {
             GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT)
         }
 
+        binding.descriptionContainer.post {
+            binding.descriptionContainer.translationY = -binding.descriptionContainer.height.toFloat()
+        }
 
         modelNode = ArModelNode(sceneView.engine, PlacementMode.INSTANT)
 
@@ -151,6 +157,7 @@ class AnimalARView : Fragment() {
         currentAnimal = animal
         mediaPlayer?.stop()
         resetPlayButton()
+        hideDescription()
         if (animal != null) {
 
             if (animal.sound.isNullOrEmpty()) {
@@ -173,6 +180,10 @@ class AnimalARView : Fragment() {
                 modelNode.anchor()
                 sceneView.planeRenderer.isVisible = false
                 binding.leftButtonLayout.visibility = View.VISIBLE
+
+                binding.modelInfo.setOnClickListener {
+                    showDescription(animal) // Pass the Animal object
+                }
 
                 binding.modelSound.setOnClickListener {
                     Log.e("AnimalARViewPlay", "modelSound clicked")
@@ -310,15 +321,47 @@ class AnimalARView : Fragment() {
         binding.modelSound.setImageResource(R.drawable.play_sound)
     }
 
+    private fun showDescription(animal: Animal) {
+        if (binding.descriptionContainer.visibility == View.GONE) {
+
+            binding.descriptionContainer.visibility = View.VISIBLE
+            binding.modelTitle.text = animal.name
+            binding.modelDescription.text = animal.description
+            binding.modelFunFact.text = animal.funFact
+            binding.modelSoundDesc.text = animal.soundDesc
+            binding.modelLifeSpan.text = animal.lifeSpan
+
+            val animator = ObjectAnimator.ofFloat(binding.descriptionContainer, "translationY", -binding.descriptionContainer.height.toFloat(), 0f)
+            animator.duration = 500
+            animator.start()
+        } else {
+            // Hide the description
+            hideDescription()
+        }
+    }
+    private fun hideDescription() {
+        val animator = ObjectAnimator.ofFloat(binding.descriptionContainer, "translationY", -binding.descriptionContainer.height.toFloat())
+        animator.duration = 500
+        animator.start()
+
+        animator.doOnEnd { // Use doOnEnd to ensure visibility is changed after animation
+            binding.descriptionContainer.visibility = View.GONE
+        }
+    }
+
 
     override fun onPause() {
         super.onPause()
-        //mediaPlayer.stop()
+        mediaPlayer?.stop()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        //mediaPlayer.release()
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
+
 
 }
