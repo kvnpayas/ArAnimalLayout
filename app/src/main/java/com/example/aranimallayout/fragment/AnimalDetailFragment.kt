@@ -1,5 +1,7 @@
 package com.example.aranimallayout.fragment
 
+import android.media.AudioAttributes
+import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +26,7 @@ class AnimalDetailFragment : Fragment() {
     private var playButtonDesc: TextView? = null
     private var playButtonLayout: LinearLayout? = null
     private var soundResId: Int? = null
+    private var animalSoundVolume = 1.0f
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,10 +76,18 @@ class AnimalDetailFragment : Fragment() {
             }
 
             if (soundResId != 0 && soundResId != null) {
-                mediaPlayer = MediaPlayer.create(context, soundResId!!)
-
-                mediaPlayer?.setOnCompletionListener {
-                    resetPlayButton()
+                mediaPlayer = MediaPlayer().apply {
+                    val audioAttributes = AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_ALARM) // Use alarm usage
+                        .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                        .build()
+                    setAudioAttributes(audioAttributes)
+                    setDataSource(requireContext(), android.net.Uri.parse("android.resource://${requireContext().packageName}/$soundResId"))
+                    prepare()
+                    setVolume(animalSoundVolume, animalSoundVolume) // set volume
+                    setOnCompletionListener {
+                        resetPlayButton()
+                    }
                 }
 
                 playButton?.setOnClickListener {
@@ -87,11 +98,7 @@ class AnimalDetailFragment : Fragment() {
                     }
                 }
             } else {
-                // No sound for this animal, hide the play button
-//                playButton?.visibility = View.GONE
-//                playButtonDesc?.visibility = View.GONE
                 playButtonLayout?.visibility = View.GONE
-
             }
         }
 

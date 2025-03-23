@@ -14,5 +14,6 @@ data class Animal(
     val description: String,
     val imageUrl: String,
     val sound: String,
-    val soundDesc: String
+    val soundDesc: String,
+    val model: String
 ) : Parcelable

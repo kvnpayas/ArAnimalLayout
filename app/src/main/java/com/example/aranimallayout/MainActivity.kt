@@ -17,6 +17,8 @@ import android.media.MediaPlayer
 
 class MainActivity : AppCompatActivity() {
     private var mediaPlayer: MediaPlayer? = null
+    var backgroundMusicMuted = false
+    var backgroundMusicVolume = 1.0f // Initial volume
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +68,7 @@ class MainActivity : AppCompatActivity() {
     private fun startBackgroundMusic() {
         mediaPlayer = MediaPlayer.create(this, R.raw.backgroundmusic) // Replace with your music file
         mediaPlayer?.isLooping = true
+        mediaPlayer?.setVolume(backgroundMusicVolume, backgroundMusicVolume)
         mediaPlayer?.start()
     }
 
@@ -85,6 +88,18 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer = null
     }
 
+    fun setBackgroundMusicMute(muted: Boolean) {
+        backgroundMusicMuted = muted
+        if (muted) {
+            mediaPlayer?.setVolume(0f, 0f)
+        } else {
+            mediaPlayer?.setVolume(backgroundMusicVolume, backgroundMusicVolume)
+        }
+    }
+
+    fun setMediaPlayerVolume(volume: Float){
+        mediaPlayer?.setVolume(volume, volume)
+    }
 
 }
 

@@ -20,6 +20,53 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8" />
 
+    <LinearLayout
+        android:id="@+id/leftButtonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomGuideline"
+        android:layout_marginStart="1dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/modelSound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/play_sound"
+            app:tint="@color/accent"
+            android:backgroundTint="@color/white"
+            app:maxImageSize="58dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/modelInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/info2"
+            app:tint="@color/accent"
+            android:backgroundTint="@color/white"
+            app:maxImageSize="58dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/captureCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        android:src="@drawable/baseline_camera_24"
+        app:tint="@color/white"
+        android:backgroundTint="@color/accent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/sceneView"
+        android:layout_marginBottom="20dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/animalRecyclerView"
         android:layout_width="match_parent"
@@ -31,13 +78,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/bottomGuideline" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/optionsButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_margin="8dp"-->
-<!--        android:background="?attr/selectableItemBackgroundBorderless"-->
-<!--        android:src="@drawable/options"-->
-<!--        app:layout_constraintStart_toStartOf="@id/animalRecyclerView"-->
-<!--        app:layout_constraintTop_toTopOf="@id/animalRecyclerView"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
