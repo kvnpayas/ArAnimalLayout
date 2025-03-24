@@ -15,7 +15,7 @@
         "funFact": "Caecilians are limbless or legless",
         "description": ": Caecilians are a group of limbless, vermiform, or serpentine amphibians with small or sometimes nonexistent eyes. They mostly live hidden in soil or streambeds, and this cryptic lifestyle makes them among the least familiar amphibians. Todaya caecilian or Mindanao Island caecilian, is a species of caecilian in the family Ichthyophiidae. They are endemic to the island of Mindanao, the Philippines.",
         "imageUrl": "amphibian_caecilian",
-        "model" : "caecilian.glb"
+        "model" : "caecillian.glb"
       },
       {
         "id": 102,
@@ -87,7 +87,7 @@
         "funFact": "The black-naped oriole is known for its striking yellow and black plumage, with males being entirely golden-yellow except for their black wings and tail. They are also known to be quite adaptable, thriving in various habitats including forests, gardens, and plantations",
         "description": "The black-naped oriole is a medium-sized bird with a bright yellow body, black wings, and a distinctive black band across its eyes and nape. The bill is deep pinkish. Females are like males but have more yellowish-green upperparts. Juveniles have streaked underparts. They are often found in forest canopies and are known for their beautiful songs.",
         "imageUrl": "nape",
-        "model" : "nape.glb"
+        "model" : "black_nape.glb"
       },
       {
         "id": 202,
