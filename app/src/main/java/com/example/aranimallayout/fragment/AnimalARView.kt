@@ -3,6 +3,7 @@ package com.example.aranimallayout.fragment
 import android.animation.ObjectAnimator
 import android.content.ContentValues
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Rect
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -35,10 +36,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.OutputStream
 import android.os.HandlerThread
 import android.os.Looper
-import android.view.ViewTreeObserver
 import androidx.core.animation.doOnEnd
 import com.example.aranimallayout.Animal
 import com.example.aranimallayout.R
+
+import com.google.android.filament.Texture
+import com.google.android.filament.Texture.InternalFormat
+import com.google.android.filament.Texture.Sampler
+import com.google.android.filament.Texture.Usage
+import com.google.android.filament.Texture.PixelBufferDescriptor
+import com.google.android.filament.TextureSampler
+import com.google.ar.sceneform.math.Vector3
+import java.nio.ByteBuffer
 
 class AnimalARView : Fragment() {
 
@@ -57,6 +66,10 @@ class AnimalARView : Fragment() {
     private var animalSoundVolume = 1.0f
     private var isPlaying = false
     private var currentSoundResourceId: Int? = null
+
+    private var backgroundQuadNode: ArModelNode? = null
+    private var isCameraBackground: Boolean = true
+    private lateinit var backgroundNode: ArModelNode
 
 
     override fun onCreateView(
@@ -85,6 +98,7 @@ class AnimalARView : Fragment() {
 
         binding.descriptionContainer.post {
             binding.descriptionContainer.translationY = -binding.descriptionContainer.height.toFloat()
+            binding.descriptionContainer.visibility = View.GONE
         }
 
         modelNode = ArModelNode(sceneView.engine, PlacementMode.INSTANT)
@@ -103,7 +117,11 @@ class AnimalARView : Fragment() {
         captureButton = binding.captureCamera
         binding.leftButtonLayout.visibility = View.GONE
 
+        backgroundNode = ArModelNode(sceneView.engine, PlacementMode.INSTANT)
+        sceneView.addChild(backgroundNode)
+
         sceneView.addChild(modelNode)
+
 
         animalAdapter!!.setOnItemClickListener { modelType ->
             loadModel(modelType)
@@ -150,6 +168,7 @@ class AnimalARView : Fragment() {
         captureButton.setOnClickListener {
             captureScreenshot()
         }
+
     }
 
     private fun loadModel(modelType: String) {
@@ -197,6 +216,17 @@ class AnimalARView : Fragment() {
                         Log.d("AnimalARViewPlay", "currentAnimal is null")
                     }
                 }
+
+                binding.modelBackground.setOnClickListener {
+                    Log.d("AnimalARViewBg", "modelBackground clicked")
+                    if (currentAnimal != null) {
+                        Log.d("AnimalARViewBg", "currentAnimal is not null")
+                        toggleBackground(currentAnimal!!)
+                    } else {
+                        Log.d("AnimalARViewBg", "currentAnimal is null")
+                    }
+                }
+
             }
         } else {
             Log.w("AnimalARView", "Model not found: $modelType")
@@ -346,6 +376,57 @@ class AnimalARView : Fragment() {
 
         animator.doOnEnd { // Use doOnEnd to ensure visibility is changed after animation
             binding.descriptionContainer.visibility = View.GONE
+        }
+    }
+
+    private fun toggleBackground(animal: Animal) {
+        Log.d("AnimalARViewBg", "toggleBackground called")
+        Log.d("AnimalARViewBg", "isCameraBackground: $isCameraBackground")
+        if (isCameraBackground) {
+            Log.d("AnimalARViewBg", "isCameraBackground is true, loading background")
+            loadBackgroundImage(animal)
+            isCameraBackground = false
+        } else {
+            Log.d("AnimalARViewBg", "isCameraBackground is false, removing background")
+            removeBackgroundImage()
+            isCameraBackground = true
+        }
+    }
+
+    private fun loadBackgroundImage(animal: Animal) {
+        val modelBg = animal.backgroundImage
+
+
+        backgroundNode.apply {
+            val modelFile = "models/$modelBg"
+            Log.d("AnimalARViewBG", "modelFile: $modelFile")
+            loadModelGlbAsync(
+                glbFileLocation = modelFile,
+                autoAnimate = false,
+                scaleToUnits = 2f,
+                onError = { exception ->
+                    Log.e("AnimalARViewBg", "Error loading background.glb: ${exception.message}")
+                    exception.printStackTrace()
+                }
+            ) {
+                anchor()
+//                position = io.github.sceneview.math.Position(5f, 2f, -10f)
+                rotation = io.github.sceneview.math.Rotation(0f, 90f, 0f)
+                sceneView.planeRenderer.isVisible = false
+
+                Log.d("AnimalARViewBG", "backgroundQuadNode added to sceneView")
+
+            }
+        }
+        Log.d("AnimalARViewBG", "End")
+    }
+
+    private fun removeBackgroundImage() {
+        backgroundNode?.let {
+            sceneView.removeChild(it)
+            it.destroy()
+            backgroundNode = ArModelNode(sceneView.engine, PlacementMode.INSTANT) // create a new node.
+            sceneView.addChild(backgroundNode)
         }
     }
 

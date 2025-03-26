@@ -15,7 +15,8 @@
         "funFact": "Caecilians are limbless or legless",
         "description": ": Caecilians are a group of limbless, vermiform, or serpentine amphibians with small or sometimes nonexistent eyes. They mostly live hidden in soil or streambeds, and this cryptic lifestyle makes them among the least familiar amphibians. Todaya caecilian or Mindanao Island caecilian, is a species of caecilian in the family Ichthyophiidae. They are endemic to the island of Mindanao, the Philippines.",
         "imageUrl": "amphibian_caecilian",
-        "model" : "caecillian.glb"
+        "model" : "caecillian.glb",
+        "backgroundImage": "dirt_bg.glb"
       },
       {
         "id": 102,
@@ -23,12 +24,13 @@
         "tagalogName": "Palaka",
         "scientificName": "Barbourula busuangensis",
         "lifeSpan": "Lives between 5 to 10 years",
-        "sound": "",
+        "sound": "frog_sound",
         "soundDesc": "Sounds like rough “qwark-qwark-qwark",
         "funFact": "They can absorb water through their skin! Frogs don't need to drink water like many other animals; instead, they have a special patch of skin on their bellies, called the drinking patch, that allows them to absorb water directly from their surroundings. This unique adaptation helps them stay hydrated even when they're out of the water.",
         "description": "A frog is any member of a diverse and largely carnivorous group of short-bodied, tailless amphibians composing the order Anura.",
         "imageUrl": "amphibian_frog",
-        "model" : "frog.glb"
+        "model" : "frog.glb",
+        "backgroundImage": "lily_bg.glb"
       },
       {
         "id": 103,
@@ -36,12 +38,13 @@
         "tagalogName": "",
         "scientificName": "Pleurodelinae",
         "lifeSpan": "Lives between 15 to 25 years",
-        "sound": "",
+        "sound": "newt_sound",
         "soundDesc": "They produce squeaks when handled or clucking sounds whilst gulping air at the water's surface",
         "funFact": "Did you know that some newts shed their skin and then eat the skin? That must be a tasty snack if you are a newt!",
         "description": "Newts are small, semi-aquatic amphibians that are part of the salamander family. They are sometimes called a cross between a frog and a lizard.",
         "imageUrl": "amphibian_newt",
-        "model" : "newt.glb"
+        "model" : "newt.glb",
+        "backgroundImage": "leaves_bg.glb"
       },
       {
         "id": 104,
@@ -49,12 +52,13 @@
         "tagalogName": "Bangkalang",
         "scientificName": "Caudata",
         "lifeSpan": "Around 5 to15 years",
-        "sound": "",
+        "sound": "salamander_sound",
         "soundDesc": "Salamanders are generally quiet, but some species may make soft clicks or squeaks during mating.",
         "funFact": "Some salamanders can regenerate lost body parts, including limbs, tails, and even parts of their heart and brain!",
         "description": "Salamanders are a group of amphibians typically characterized by their slender bodies, short legs, and long tails. They are known for their moist skin, which is often smooth and can be brightly colored or patterned. Salamanders are found in a variety of habitats, including forests, streams, and swamps, and they play a crucial role in the ecosystem as both predators and prey.",
         "imageUrl": "amphibian_salamander",
-        "model" : "salamander.glb"
+        "model" : "salamander.glb",
+        "backgroundImage": "rock_bg.glb"
       },
       {
         "id": 105,
@@ -62,12 +66,13 @@
         "tagalogName": "Palaka",
         "scientificName": "Anura",
         "lifeSpan": "Around 10-12 years, but some species can live up to 15 years or more in the wild.",
-        "sound": "",
+        "sound": "toad_sound",
         "soundDesc": "Rhythmic \"croak\" or \"ribbit\"",
         "funFact": "Toads have parotoid glands behind their eyes that secrete a toxin to deter predators. Despite their warty appearance, toads don't cause warts in humans.",
         "description": "Toads are a group of amphibians characterized by their dry, warty skin, short legs, and stout bodies. Unlike frogs, toads tend to have shorter hops and prefer to walk or crawl. They are often found in terrestrial habitats, such as gardens, forests, and fields, and they play an important role in controlling insect populations. Toads are generally nocturnal and are known for their distinctive mating calls during the breeding season.",
         "imageUrl": "amphibian_toad",
-        "model" : "toad.glb"
+        "model" : "toad.glb",
+        "backgroundImage": "lily_bg.glb"
       }
     ]
   },
@@ -82,12 +87,13 @@
         "tagalogName": "Ibon",
         "scientificName": "Oriolus chinensis",
         "lifeSpan": "Around 10-12 years in the wild.",
-        "sound": "black_nape_sound",
+        "sound": "nape_sound",
         "soundDesc": "Black-naped orioles produce melodious whistles and fluty calls, often sounding like \"wheeeeeoo\" or \"keeeyoo.\"",
         "funFact": "The black-naped oriole is known for its striking yellow and black plumage, with males being entirely golden-yellow except for their black wings and tail. They are also known to be quite adaptable, thriving in various habitats including forests, gardens, and plantations",
         "description": "The black-naped oriole is a medium-sized bird with a bright yellow body, black wings, and a distinctive black band across its eyes and nape. The bill is deep pinkish. Females are like males but have more yellowish-green upperparts. Juveniles have streaked underparts. They are often found in forest canopies and are known for their beautiful songs.",
         "imageUrl": "nape",
-        "model" : "black_nape.glb"
+        "model" : "black_nape.glb",
+        "backgroundImage": "tree_bg.glb"
       },
       {
         "id": 202,
@@ -100,7 +106,8 @@
         "funFact": "Chickens have excellent memories and can recognize over 100 different faces, including humans!",
         "description": "Chickens are domesticated birds known for their plump bodies, short legs, and distinctive combs and wattles. They come in a variety of breeds, each with unique feather patterns and colors. Chickens are social animals and live in flocks, where they establish a pecking order. They are primarily kept for their eggs and meat but also make great pets due to their interesting behaviors and personalities. Chickens have a keen sense of hearing and vision and are capable of understanding and communicating through a range of vocalizations.",
         "imageUrl": "birds_chicken",
-        "model" : "chicken.glb"
+        "model" : "chicken.glb",
+        "backgroundImage": "chicken_bg.glb"
       },
       {
         "id": 203,
@@ -113,7 +120,8 @@
         "funFact": "Doves are often seen as symbols of peace and love. In many cultures, they are released at weddings and other celebrations to signify these values.",
         "description": "Doves are slender, medium-sized birds with soft, dense feathers and small heads. They have a characteristic cooing call and are often seen in pairs or flocks. Doves come in a variety of colors, including white, gray, and shades of brown. They are commonly found in parks, gardens, and urban areas, as well as in the wild. Doves feed primarily on seeds, fruits, and plants. They are known for their gentle nature and strong homing instincts, which make them popular in pigeon racing and as pets.",
         "imageUrl": "birds_dove",
-        "model" : "dove.glb"
+        "model" : "dove.glb",
+        "backgroundImage": "chicken_bg.glb"
       },
       {
         "id": 204,
@@ -126,7 +134,8 @@
         "funFact": "Ducks have waterproof feathers due to a special gland near their tail that produces oil, which they spread over their feathers to keep them dry.",
         "description": "Ducks are waterfowl birds with broad, flat bills and webbed feet, making them excellent swimmers. They have a wide variety of plumage colors and patterns, depending on the species. Ducks are found in freshwater and saltwater habitats, including lakes, rivers, and coastal areas. They are known for their dabbling behavior, where they feed by tipping forward in the water to forage for aquatic plants, insects, and small fish. Ducks are social animals and often live in groups called flocks. They are also known for their migratory behavior, traveling long distances between breeding and wintering grounds.",
         "imageUrl": "birds_duck",
-        "model" : "duck.glb"
+        "model" : "duck.glb",
+        "backgroundImage": "pond_bg.glb"
       },
       {
         "id": 205,
@@ -139,7 +148,8 @@
         "funFact": "Eagles have incredibly sharp vision, allowing them to spot prey from a distance of up to two miles!",
         "description": "Eagles are large, powerful birds of prey known for their impressive wingspans, sharp talons, and keen eyesight. They are often seen soaring high in the sky, scanning the ground for potential prey, which includes fish, small mammals, and other birds. Eagles have a distinctive hooked beak that is perfect for tearing flesh. They are found in various habitats, including mountains, forests, and near bodies of water. Eagles are also known for their strong sense of territory and often build large nests, called eyries, in high places such as cliffs or tall trees. These majestic birds are symbols of strength, freedom, and resilience in many cultures around the world.",
         "imageUrl": "birds_eagle",
-        "model" : "eagle.glb"
+        "model" : "eagle.glb",
+        "backgroundImage": "tree_bg.glb"
       }
     ]
   },
@@ -154,12 +164,13 @@
         "tagalogName": "Hito",
         "scientificName": "Siluriformes",
         "lifeSpan": "Catfish can live for about 8 to 20 years, depending on the species and their living conditions.",
-        "sound": "",
+        "sound": "catfish_sound",
         "soundDesc": "Catfish are generally silent, but some species can produce sounds using their pectoral fins and swim bladder.",
         "funFact": "Catfish have taste buds all over their bodies, with a higher concentration on their whisker-like barbels. This adaptation helps them detect food in murky waters. ",
         "description": "Catfish are a diverse group of fish known for their whisker-like barbels around their mouths, which resemble a cat's whiskers. They can be found in freshwater habitats such as rivers, lakes, and ponds, as well as some brackish and coastal marine environments. Catfish vary greatly in size, color, and behavior. Some species, like the Walking catfish, are known for their ability to move across land in search of water. Catfish play an important role in their ecosystems by helping to maintain water quality and serving as a food source for other animals.",
         "imageUrl": "fish_catfish",
-        "model" : "catfish.glb"
+        "model" : "catfish.glb",
+        "backgroundImage": "pond_bg.glb"
       },
       {
         "id": 302,
@@ -167,12 +178,13 @@
         "tagalogName": "Gurami",
         "scientificName": "Osphronemidae",
         "lifeSpan": "Around 4-8 years, depending on the species and living conditions.",
-        "sound": "",
+        "sound": "gourami_sound",
         "soundDesc": "Gouramis are generally quiet, but they can produce low-frequency sounds such as croaks or grunts during mating or when disturbed.",
         "funFact": "Gouramis have a unique organ called the labyrinth, which allows them to breathe air directly from the surface. This adaptation helps them survive in low-oxygen environments.",
         "description": "Gouramis are a group of freshwater fish known for their vibrant colors and elegant fins. They have a flattened, oval-shaped body and are often found in calm waters such as ponds, slow-moving rivers, and swamps. Gouramis are popular in the aquarium trade due to their striking appearance and relatively peaceful nature. They come in a variety of species, each with unique coloration and patterns. Gouramis are omnivores, feeding on a diet of small invertebrates, plant matter, and algae. Their ability to breathe air from the surface makes them well-suited for environments with low oxygen levels.",
         "imageUrl": "fish_gourami",
-        "model" : "gourami.glb"
+        "model" : "gourami.glb",
+        "backgroundImage": "home_bg"
       },
       {
         "id": 303,
@@ -185,7 +197,8 @@
         "funFact": "Milkfish are often referred to as the \"national fish\" of the Philippines, and they are widely farmed for their delicious, mild-flavored meat.",
         "description": "Milkfish are silver-colored fish with a streamlined, elongated body and a deeply forked tail. They are found in warm, tropical waters and are known for their adaptability to both fresh and saltwater environments. Milkfish are herbivores, feeding primarily on algae and small invertebrates. They are popular in aquaculture due to their fast growth and high market demand. In Filipino cuisine, milkfish is often prepared in various ways, including frying, grilling, and making it into \"daing\" or dried fish. They are also used in traditional Filipino dishes like \"bangus sisig\" and \"rellenong bangus.\"",
         "imageUrl": "fish_milkfish",
-        "model" : "milkfish.glb"
+        "model" : "milkfish.glb",
+        "backgroundImage": "home_bg"
       },
       {
         "id": 304,
@@ -193,12 +206,13 @@
         "tagalogName": "Dalag",
         "scientificName": "Chana striata",
         "lifeSpan": "Around 5-10 years, depending on environmental conditions.",
-        "sound": "",
+        "sound": "catfish_sound",
         "soundDesc": "Mudfish are generally quiet and do not produce audible sounds that humans can hear.",
         "funFact": "Mudfish can survive in very low-oxygen environments by gulping air at the surface and can even survive on land for short periods by wriggling and using their pectoral fins to move.",
         "description": "Mudfish, also known as snakeheads, are freshwater fish characterized by their elongated, cylindrical bodies and snake-like appearance. They have a broad, flat head and a mouth filled with sharp teeth. Mudfish are typically found in slow-moving or stagnant waters, such as swamps, ponds, and rice paddies. They are known for their hardy nature and ability to adapt to various environmental conditions. Mudfish are carnivorous, feeding on smaller fish, crustaceans, and insects. They are an important part of local diets in many regions and are often used in traditional dishes.",
         "imageUrl": "fish_mudfish",
-        "model" : "mudfish.glb"
+        "model" : "mudfish.glb",
+        "backgroundImage": "home_bg"
       },
       {
         "id": 305,
@@ -211,7 +225,8 @@
         "funFact": "Tilapia are known for their rapid growth and ability to thrive in various environments, making them one of the most farmed fish in the world. They are often referred to as \"aquatic chickens\" due to their efficiency and versatility in aquaculture.",
         "description": "Tilapias are freshwater fish with laterally compressed bodies and a variety of colorations, ranging from gray to reddish hues, depending on the species. They are native to Africa but have been introduced to many parts of the world for aquaculture. Tilapias are hardy and can adapt to different water conditions, making them popular in fish farming. They are omnivores, feeding on a diet of algae, plants, and small invertebrates. Tilapias are also known for their mild-flavored, white flesh, which is highly valued in culinary dishes around the world.",
         "imageUrl": "fish_tilapia",
-        "model" : "tilapia.glb"
+        "model" : "tilapia.glb",
+        "backgroundImage": "home_bg"
       }
     ]
   },
@@ -231,7 +246,8 @@
         "funFact": "Ants are capable of lifting and carrying objects that are up to 50 times their own body weight, thanks to their strong muscles and exoskeleton.",
         "description": "Ants are social insects that live in colonies, which can range in size from a few dozen individuals to millions. They have a segmented body with a distinct head, thorax, and abdomen, and are equipped with antennae and mandibles. Ants play a crucial role in their ecosystems by aerating soil, decomposing organic matter, and serving as a food source for other animals. They exhibit complex behaviors and division of labor within their colonies, with different castes (workers, soldiers, and queens) performing specific tasks.",
         "imageUrl": "insects_ant",
-        "model" : "ant.glb"
+        "model" : "ant.glb",
+        "backgroundImage": "ant_bg.glb"
       },
       {
         "id": 402,
@@ -244,7 +260,8 @@
         "funFact": "Bees play a crucial role in pollination, which is essential for the production of many fruits, vegetables, and nuts. A single bee colony can pollinate hundreds of thousands of plants in a single day.",
         "description": "Bees are social insects known for their role in pollination and, in the case of honeybees, for producing honey and beeswax. They have a segmented body with a head, thorax, and abdomen, and are equipped with antennae and wings. Bees live in highly organized colonies with a division of labor among different castes, including workers, drones, and a single queen. They communicate with each other through a series of dances, such as the \"waggle dance,\" to convey information about the location of food sources. Bees are vital to ecosystems and agriculture due to their role in pollination.",
         "imageUrl": "insects_bee",
-        "model" : "bee.glb"
+        "model" : "bee.glb",
+        "backgroundImage": "bee_bg.glb"
       },
       {
         "id": 403,
@@ -257,7 +274,8 @@
         "funFact": "Butterflies taste with their feet! They have taste receptors on their feet, which allow them to detect the chemical composition of plants and find suitable places to lay their eggs. ",
         "description": "Butterflies are beautiful, colorful insects known for their delicate wings and graceful flight. They undergo a complete metamorphosis, starting as eggs, then transforming into caterpillars (larvae), pupae (chrysalises), and finally, adult butterflies. Butterflies are important pollinators and play a crucial role in the ecosystem. They are found in various habitats, including meadows, forests, and gardens. Butterflies are often associated with beauty and transformation, making them a popular subject in art and symbolism.",
         "imageUrl": "insects_butterfly",
-        "model" : "butterfly.glb"
+        "model" : "butterfly.glb",
+        "backgroundImage": "flower_bg.glb"
       },
       {
         "id": 404,
@@ -265,12 +283,13 @@
         "tagalogName": "Ipis",
         "scientificName": "Blattella germanica",
         "lifeSpan": "Cockroaches can live for about 6 months to 1 year, depending on the species and their living conditions.",
-        "sound": "",
+        "sound": "cockroach_sound",
         "soundDesc": "Cockroaches are generally silent, but some species can produce faint sounds by rubbing their legs or wings together, a process known as stridulation.",
         "funFact": "Cockroaches are incredibly resilient and can survive for weeks without food and water. They can also withstand extreme radiation levels, which makes them one of the most durable creatures on the planet.",
         "description": "Cockroaches are insects that have flattened, oval-shaped bodies and long antennae. They are known for their hardiness and adaptability, thriving in a wide range of environments. Cockroaches are often associated with unsanitary conditions, but they play a crucial role in the ecosystem by breaking down organic matter and recycling nutrients. They have a reputation for being difficult to eradicate due to their ability to hide in small spaces and their rapid reproductive rate.",
         "imageUrl": "insects_cockroach",
-        "model" : "cockroach.glb"
+        "model" : "cockroach.glb",
+        "backgroundImage": "cockroach_bg.glb"
       },
       {
         "id": 405,
@@ -283,7 +302,8 @@
         "funFact": "Only female mosquitoes bite and feed on blood, which they need to develop their eggs. Male mosquitoes primarily feed on nectar and other plant juices.",
         "description": "Mosquitoes are small, flying insects known for their slender bodies, long legs, and proboscis, which they use to feed. They are found in various habitats, including tropical and temperate regions. Mosquitoes play a significant role in ecosystems as pollinators and as a food source for other animals. However, they are also known for their ability to transmit diseases such as malaria, dengue fever, and Zika virus. Mosquitoes have a complex life cycle that includes egg, larval, pupal, and adult stages, and they often breed in standing water.",
         "imageUrl": "insects_mosquito",
-        "model" : "mosquito.glb"
+        "model" : "mosquito.glb",
+        "backgroundImage": "mos_bg.glb"
       }
     ]
   },
@@ -303,7 +323,8 @@
         "funFact": "Carabaos are excellent swimmers! They can swim across rivers and bodies of water with ease, making them very useful in flood-prone areas.",
         "description": "The carabao is a domesticated water buffalo native to the Philippines and other parts of Southeast Asia. It is a robust, stocky animal with a greyish-black hide, large, backward-curving horns, and a stout body. Carabaos are highly valued in agricultural communities for their strength and endurance, making them perfect for tasks such as plowing fields and pulling carts. Their gentle nature and significant contribution to farming make them a beloved animal in the countryside.",
         "imageUrl": "mammals_carabao",
-        "model" : "carabao.glb"
+        "model" : "carabao.glb",
+        "backgroundImage": "farm_bg.glb"
       },
       {
         "id": 502,
@@ -316,7 +337,8 @@
         "funFact": "Cats have an extraordinary ability to land on their feet due to their unique skeletal structure and flexible spine, known as the \"righting reflex.\"",
         "description": "Cats are small, carnivorous mammals that have been domesticated by humans for thousands of years. They are known for their sharp retractable claws, keen senses, and agile bodies. Cats come in various breeds, colors, and patterns, each with unique characteristics. They are often cherished for their companionship, playful behavior, and independence. Cats are excellent hunters and are known to keep homes and farms free of pests such as mice and rats.",
         "imageUrl": "mammals_cat",
-        "model" : "cat.glb"
+        "model" : "cat.glb",
+        "backgroundImage": "cat_bg.glb"
       },
       {
         "id": 503,
@@ -329,7 +351,8 @@
         "funFact": "Cows have an excellent sense of smell and can detect odors up to six miles away. This ability helps them find food and avoid predators.",
         "description": "Cows are large, domesticated herbivores that are often kept for their milk, meat, and hides. They have a sturdy body, a large head with a broad snout, and a pair of horns in some breeds. Cows are known for their gentle and social nature, often forming strong bonds with other cows in their herd. They have a distinctive digestive system with four stomach compartments, allowing them to efficiently process fibrous plant material.",
         "imageUrl": "mammals_cow",
-        "model" : "cow.glb"
+        "model" : "cow.glb",
+        "backgroundImage": "farm_bg.glb"
       },
       {
         "id": 504,
@@ -342,7 +365,8 @@
         "funFact": "Dogs have an exceptional sense of smell, estimated to be 40 times more sensitive than that of humans. This ability makes them excellent at tasks such as search and rescue, detection, and tracking.Dogs have an exceptional sense of smell, estimated to be 40 times more sensitive than that of humans. This ability makes them excellent at tasks such as search and rescue, detection, and tracking.Dogs have an exceptional sense of smell, estimated to be 40 times more sensitive than that of humans. This ability makes them excellent at tasks such as search and rescue, detection, and tracking.",
         "description": "Dogs are domesticated mammals known for their loyalty, companionship, and diverse roles in human society. They come in various breeds, each with distinct physical characteristics, sizes, and temperaments. Dogs have a keen sense of hearing and smell, which makes them valuable working animals in fields like law enforcement, therapy, and assistance. They are social animals that thrive on interaction with humans and other dogs, and they require regular exercise, mental stimulation, and affection to stay healthy and happy.",
         "imageUrl": "mammals_dog",
-        "model" : "dog.glb"
+        "model" : "dog.glb",
+        "backgroundImage": "dog_bg.glb"
       },
       {
         "id": 505,
@@ -355,7 +379,8 @@
         "funFact": "Some monkeys, such as Capuchins, use tools like sticks to extract insects from tree bark or to crack open nuts. This behavior demonstrates their problem-solving skills and intelligence.",
         "description": "Monkeys are highly social and intelligent mammals found in various habitats, including forests, savannas, and mountains. They have a wide range of physical characteristics, such as prehensile tails (in New World monkeys) and opposable thumbs. Monkeys are known for their agility, curiosity, and playful behavior. They form complex social groups and communicate using a variety of vocalizations, facial expressions, and body language. Monkeys play a crucial role in their ecosystems by helping with seed dispersal and maintaining the balance of their habitats.",
         "imageUrl": "mammals_monkey",
-        "model" : "monkey.glb"
+        "model" : "monkey.glb",
+        "backgroundImage": "tree_bg.glb"
       }
     ]
   },
@@ -375,7 +400,8 @@
         "funFact": "Crocodiles have a special valve in their throats called the \"palatal valve\" that allows them to open their mouths underwater without swallowing water.",
         "description": "Crocodiles are large, semi-aquatic reptiles with a long, V-shaped snout and robust bodies. They have rough, scaly skin that provides protection and camouflage in their natural habitats, such as freshwater rivers, lakes, wetlands, and coastal regions. Crocodiles are known for their powerful jaws and impressive bite force, which allows them to capture and crush prey with ease. They are also excellent swimmers, using their strong tails to propel themselves through the water. Crocodiles play a crucial role in their ecosystems by controlling the population of certain prey species and maintaining the health of their habitats.",
         "imageUrl": "reptiles_crocodile",
-        "model" : "crocodile.glb"
+        "model" : "crocodile.glb",
+        "backgroundImage": "pond_bg.glb"
       },
       {
         "id": 602,
@@ -388,7 +414,8 @@
         "funFact": "Many gecko species can detach and regrow their tails as a defense mechanism against predators. ",
         "description": "A gecko is a small to medium-sized lizard belonging to the infraorder Gekkota. Geckos are known for their vocalizations, unique toe pads that enable them to climb smooth surfaces, and a variety of colors and patterns. They are found in warm climates around the world.",
         "imageUrl": "reptiles_gecko",
-        "model" : "gecko.glb"
+        "model" : "gecko.glb",
+        "backgroundImage": "branch_bg.glb"
       },
       {
         "id": 603,
@@ -401,7 +428,8 @@
         "funFact": "Monitor lizards are considered among the most intelligent lizards and can be trained to perform simple tasks. ",
         "description": "Monitor lizards belong to the genus Varanus and are known for their large size, powerful build, and keen hunting abilities. They are highly adaptable reptiles found in a variety of habitats, including forests, savannas, and wetlands.",
         "imageUrl": "reptiles_monitor_lizard",
-        "model" : "monitor_lizard.glb"
+        "model" : "monitor_lizard.glb",
+        "backgroundImage": "branch_bg.glb"
       },
       {
         "id": 604,
@@ -414,7 +442,8 @@
         "funFact": "Snakes have a unique way of eating called \"flexible jaw,\" which allows them to swallow prey much larger than their head. Their jaws can stretch apart and expand to accommodate large meals.",
         "description": "Snakes are elongated, legless reptiles found in a variety of habitats, including forests, deserts, and wetlands. They have scaly skin that is periodically shed as they grow. Snakes vary greatly in size, color, and behavior. Some snakes, like pythons, are constrictors and use their powerful muscles to suffocate prey, while others, like cobras, use venom to immobilize their targets. Snakes play an important role in their ecosystems by controlling the population of their prey, which can include rodents, birds, and other small animals.",
         "imageUrl": "reptiles_snake",
-        "model" : "snake.glb"
+        "model" : "snake.glb",
+        "backgroundImage": "branch_bg.glb"
       },
       {
         "id": 605,
@@ -427,7 +456,8 @@
         "funFact": "Turtles have been around for over 200 million years, making them some of the oldest living reptiles on the planet. They have survived numerous environmental changes and mass extinctions.",
         "description": "Turtles are reptiles characterized by their bony or cartilaginous shells, which protect their bodies. They can be found in various habitats, including oceans, rivers, and land. Turtles come in a variety of sizes, colors, and shapes, depending on their species. They have strong, beak-like jaws and are known for their slow movement and long lifespan. Turtles play an important role in their ecosystems by helping to maintain the balance of their habitats through their feeding and nesting behaviors.",
         "imageUrl": "reptiles_turtles",
-        "model" : "turtle.glb"
+        "model" : "turtle.glb",
+        "backgroundImage": "pond_bg.glb"
       }
     ]
   }

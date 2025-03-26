@@ -109,6 +109,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottomGuideline"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/bottomGuideline"
         android:layout_width="wrap_content"
@@ -124,6 +125,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomGuideline"
         android:layout_marginStart="1dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/modelBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bg_icon"
+            app:tint="@color/white"
+            android:backgroundTint="@color/accent"
+            app:maxImageSize="48dp"
+            android:scaleX="0.5"
+            android:scaleY="0.5" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/modelSound"
