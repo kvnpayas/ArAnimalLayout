@@ -126,6 +126,19 @@
         app:layout_constraintBottom_toTopOf="@id/bottomGuideline"
         android:layout_marginStart="1dp">
 
+        <LinearLayout
+            android:id="@+id/actionButtonsLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:backgroundTint="@color/accent"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="8dp">
+
+        </LinearLayout>
+
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/modelBackground"
             android:layout_width="wrap_content"

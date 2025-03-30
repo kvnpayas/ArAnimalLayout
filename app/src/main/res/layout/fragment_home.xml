@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|center_vertical"
         android:layout_marginBottom="50dp"
-        android:src="@drawable/tarsier_home" />
+        android:src="@drawable/home_monkey" />
 
     <ImageView
         android:id="@+id/imageViewCenterBottom"
