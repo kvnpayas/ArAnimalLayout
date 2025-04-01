@@ -43,8 +43,14 @@ object JsonUtil {
             val soundDesc = animalObject.getString("soundDesc")
             val model = animalObject.getString("model")
             val backgroundImage = animalObject.getString("backgroundImage")
+            val animationsJsonArray = animalObject.getJSONArray("animations")
+            val animationsList = mutableListOf<String>()
+            for (j in 0 until animationsJsonArray.length()) {
+                animationsList.add(animationsJsonArray.getString(j))
+            }
 
-            val animal = Animal(id, name, tagalogName, scientificName, lifeSpan, funFact, description, imageUrl, sound, soundDesc, model, backgroundImage)
+
+            val animal = Animal(id, name, tagalogName, scientificName, lifeSpan, funFact, description, imageUrl, sound, soundDesc, model, backgroundImage, animationsList)
             animals.add(animal)
         }
         return animals

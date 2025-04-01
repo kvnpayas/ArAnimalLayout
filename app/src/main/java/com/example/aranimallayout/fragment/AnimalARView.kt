@@ -2,8 +2,11 @@ package com.example.aranimallayout.fragment
 
 import android.animation.ObjectAnimator
 import android.content.ContentValues
+import android.content.res.ColorStateList
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.Rect
 import android.media.AudioAttributes
 import android.media.MediaPlayer
@@ -36,7 +39,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.OutputStream
 import android.os.HandlerThread
 import android.os.Looper
+import android.widget.LinearLayout
 import androidx.core.animation.doOnEnd
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import com.example.aranimallayout.Animal
 import com.example.aranimallayout.R
 
@@ -97,7 +103,8 @@ class AnimalARView : Fragment() {
         }
 
         binding.descriptionContainer.post {
-            binding.descriptionContainer.translationY = -binding.descriptionContainer.height.toFloat()
+            binding.descriptionContainer.translationY =
+                -binding.descriptionContainer.height.toFloat()
             binding.descriptionContainer.visibility = View.GONE
         }
 
@@ -135,34 +142,40 @@ class AnimalARView : Fragment() {
             loadModel(animalName)
         }
         animalRecyclerView.addOnItemTouchListener(
-            RecyclerItemClickListener(requireContext(), animalRecyclerView, object : RecyclerItemClickListener.OnItemClickListener {
-                override fun onItemClick(view: View, position: Int) {
-                    val clickedItem = currentAnimalItems[position]
-                    when (clickedItem) {
-                        is AnimalItem.CategoryItem -> {
-                            val animals = clickedItem.category.animals
-                            currentAnimalItems = mutableListOf<AnimalItem>(AnimalItem.BackItem).apply {
-                                addAll(animals.map { AnimalItem.AnimalData(it) })
+            RecyclerItemClickListener(
+                requireContext(),
+                animalRecyclerView,
+                object : RecyclerItemClickListener.OnItemClickListener {
+                    override fun onItemClick(view: View, position: Int) {
+                        val clickedItem = currentAnimalItems[position]
+                        when (clickedItem) {
+                            is AnimalItem.CategoryItem -> {
+                                val animals = clickedItem.category.animals
+                                currentAnimalItems =
+                                    mutableListOf<AnimalItem>(AnimalItem.BackItem).apply {
+                                        addAll(animals.map { AnimalItem.AnimalData(it) })
+                                    }
+                                animalAdapter?.updateData(currentAnimalItems)
+                                binding.leftButtonLayout.visibility = View.GONE
                             }
-                            animalAdapter?.updateData(currentAnimalItems)
-                            binding.leftButtonLayout.visibility = View.GONE
-                        }
-                        is AnimalItem.AnimalData -> {
-                            val animalName = clickedItem.animal.name
-                            loadModel(animalName)
-                        }
-                        is AnimalItem.BackItem -> {
-                            currentAnimalItems = categories.map { AnimalItem.CategoryItem(it) }
-                            animalAdapter?.updateData(currentAnimalItems)
-                            binding.leftButtonLayout.visibility = View.GONE
+
+                            is AnimalItem.AnimalData -> {
+                                val animalName = clickedItem.animal.name
+                                loadModel(animalName)
+                            }
+
+                            is AnimalItem.BackItem -> {
+                                currentAnimalItems = categories.map { AnimalItem.CategoryItem(it) }
+                                animalAdapter?.updateData(currentAnimalItems)
+                                binding.leftButtonLayout.visibility = View.GONE
+                            }
                         }
                     }
-                }
 
-                override fun onLongItemClick(view: View?, position: Int) {
+                    override fun onLongItemClick(view: View?, position: Int) {
 
-                }
-            })
+                    }
+                })
         )
 
         captureButton.setOnClickListener {
@@ -192,7 +205,11 @@ class AnimalARView : Fragment() {
                 scaleToUnits = 1f,
                 onError = { exception ->
                     Log.e("AnimalARView", "Error loading model: $modelType - ${exception.message}")
-                    Toast.makeText(requireContext(), "Error loading model: $modelType", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Error loading model: $modelType",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     binding.leftButtonLayout.visibility = View.GONE
                 }
             ) {
@@ -227,13 +244,63 @@ class AnimalARView : Fragment() {
                     }
                 }
 
+                binding.actionButtonsLayout.removeAllViews() // Clear any existing buttons
+                animal.animations.forEach { animationName ->
+                    val animationButton = FloatingActionButton(requireContext())
+                    animationButton.apply {
+                        id = View.generateViewId() // Generate a unique ID for the button
+                        size = FloatingActionButton.SIZE_MINI
+                        setImageResource(R.drawable.bg_icon) // You can use a different icon
+                        ImageViewCompat.setImageTintList(
+                            this,
+                            ColorStateList.valueOf(
+                                ContextCompat.getColor(
+                                    requireContext(),
+                                    R.color.accent
+                                )
+                            )
+                        )
+                        backgroundTintList = ColorStateList.valueOf(Color.WHITE)
+                        scaleX = 0.5f
+                        scaleY = 0.5f
+                        setOnClickListener {
+                            val actionModel = "models/${animal.name}-$animationName.glb".lowercase()
+                            Log.d("AnimationLoad", "Attempting to load: $actionModel")
+                            modelNode.loadModelGlbAsync(
+                                glbFileLocation = actionModel,
+                                autoAnimate = true,
+                                scaleToUnits = 1f,
+                                onError = { exception ->
+                                    Log.e("AnimationLoadError", "Error loading $actionModel: ${exception.message}")
+                                    Toast.makeText(requireContext(), "Error loading animation: $animationName", Toast.LENGTH_SHORT).show()
+                                }
+                            ) {
+                                modelNode.anchor()
+                            }
+                        }
+                        Log.d("AnimalARViewAnimation", "animation: $animationName")
+                        val layoutParams = LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        )
+                        layoutParams.setMargins(0, 8.dpToPx(), 0, 0) // Add some margin
+                        this.layoutParams = layoutParams
+                    }
+                    binding.actionButtonsLayout.addView(animationButton)
+                }
             }
         } else {
             Log.w("AnimalARView", "Model not found: $modelType")
-            Toast.makeText(requireContext(), "Model not found: $modelType", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Model not found: $modelType", Toast.LENGTH_SHORT)
+                .show()
             binding.leftButtonLayout.visibility = View.GONE
         }
     }
+
+    private fun Int.dpToPx(): Int {
+        return (this * Resources.getSystem().displayMetrics.density).toInt()
+    }
+
     private fun captureScreenshot() {
         Log.d("AnimalARView", "captureScreenshot called")
         captureButton.visibility = View.GONE
@@ -255,8 +322,13 @@ class AnimalARView : Fragment() {
                             saveBitmapToGallery(bitmap)
                             captureButton.visibility = View.VISIBLE
                         }
+
                         else -> {
-                            Toast.makeText(requireContext(), "Screenshot failure: $result", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Screenshot failure: $result",
+                                Toast.LENGTH_SHORT
+                            ).show()
                             captureButton.visibility = View.VISIBLE
                         }
                     }
@@ -292,20 +364,27 @@ class AnimalARView : Fragment() {
                     resolver.update(uri, contentValues, null, null)
                 }
 //                Toast.makeText(requireContext(), "Screenshot saved to Gallery", Toast.LENGTH_SHORT).show()
-                Toast.makeText(requireContext(), "Image captured and saved to Gallery!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Image captured and saved to Gallery!",
+                    Toast.LENGTH_SHORT
+                ).show()
             } catch (e: Exception) {
                 resolver.delete(uri, null, null)
                 Log.e("AnimalARView", "Error saving image to gallery: ${e.message}")
-                Toast.makeText(requireContext(), "Failed to save screenshot.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Failed to save screenshot.", Toast.LENGTH_SHORT)
+                    .show()
             }
         } ?: run {
-            Toast.makeText(requireContext(), "Failed to save screenshot.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Failed to save screenshot.", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
     private fun playSound(soundFileName: String) {
         try {
-            val soundResourceId = resources.getIdentifier(soundFileName, "raw", requireContext().packageName)
+            val soundResourceId =
+                resources.getIdentifier(soundFileName, "raw", requireContext().packageName)
             if (soundResourceId != 0) {
 
                 if (soundResourceId != currentSoundResourceId) {
@@ -317,7 +396,10 @@ class AnimalARView : Fragment() {
                             .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
                             .build()
                         setAudioAttributes(audioAttributes)
-                        setDataSource(requireContext(), android.net.Uri.parse("android.resource://${requireContext().packageName}/$soundResourceId"))
+                        setDataSource(
+                            requireContext(),
+                            android.net.Uri.parse("android.resource://${requireContext().packageName}/$soundResourceId")
+                        )
                         prepare()
                         setVolume(animalSoundVolume, animalSoundVolume)
                         setOnCompletionListener {
@@ -361,7 +443,12 @@ class AnimalARView : Fragment() {
             binding.modelSoundDesc.text = animal.soundDesc
             binding.modelLifeSpan.text = animal.lifeSpan
 
-            val animator = ObjectAnimator.ofFloat(binding.descriptionContainer, "translationY", -binding.descriptionContainer.height.toFloat(), 0f)
+            val animator = ObjectAnimator.ofFloat(
+                binding.descriptionContainer,
+                "translationY",
+                -binding.descriptionContainer.height.toFloat(),
+                0f
+            )
             animator.duration = 500
             animator.start()
         } else {
@@ -369,8 +456,13 @@ class AnimalARView : Fragment() {
             hideDescription()
         }
     }
+
     private fun hideDescription() {
-        val animator = ObjectAnimator.ofFloat(binding.descriptionContainer, "translationY", -binding.descriptionContainer.height.toFloat())
+        val animator = ObjectAnimator.ofFloat(
+            binding.descriptionContainer,
+            "translationY",
+            -binding.descriptionContainer.height.toFloat()
+        )
         animator.duration = 500
         animator.start()
 
@@ -425,7 +517,8 @@ class AnimalARView : Fragment() {
         backgroundNode?.let {
             sceneView.removeChild(it)
             it.destroy()
-            backgroundNode = ArModelNode(sceneView.engine, PlacementMode.INSTANT) // create a new node.
+            backgroundNode =
+                ArModelNode(sceneView.engine, PlacementMode.INSTANT) // create a new node.
             sceneView.addChild(backgroundNode)
         }
     }
