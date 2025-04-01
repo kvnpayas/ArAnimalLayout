@@ -269,7 +269,7 @@ class AnimalARView : Fragment() {
                             modelNode.loadModelGlbAsync(
                                 glbFileLocation = actionModel,
                                 autoAnimate = true,
-                                scaleToUnits = 1f,
+                                scaleToUnits = 0.01f,
                                 onError = { exception ->
                                     Log.e("AnimationLoadError", "Error loading $actionModel: ${exception.message}")
                                     Toast.makeText(requireContext(), "Error loading animation: $animationName", Toast.LENGTH_SHORT).show()
