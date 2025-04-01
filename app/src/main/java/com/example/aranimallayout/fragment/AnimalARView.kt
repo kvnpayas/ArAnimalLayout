@@ -45,6 +45,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
 import com.example.aranimallayout.Animal
 import com.example.aranimallayout.R
+import android.widget.TextView
+import android.view.Gravity
 
 import com.google.android.filament.Texture
 import com.google.android.filament.Texture.InternalFormat
@@ -244,6 +246,7 @@ class AnimalARView : Fragment() {
                     }
                 }
 
+
                 binding.actionButtonsLayout.removeAllViews() // Clear any existing buttons
                 animal.animations.forEach { animationName ->
                     val animationButton = FloatingActionButton(requireContext())
@@ -287,6 +290,21 @@ class AnimalARView : Fragment() {
                         this.layoutParams = layoutParams
                     }
                     binding.actionButtonsLayout.addView(animationButton)
+
+                    val labelTextView = TextView(requireContext()).apply {
+                        layoutParams = LinearLayout.LayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT
+                        ).apply {
+                            leftMargin = 13.dpToPx()
+                            topMargin = -13.dpToPx()
+                        }
+                        text = animationName
+                        textSize = 12f
+                        setTextColor(Color.WHITE)
+                        gravity = Gravity.CENTER_HORIZONTAL
+                    }
+                    binding.actionButtonsLayout.addView(labelTextView)
                 }
             }
         } else {
