@@ -266,13 +266,18 @@ class AnimalARView : Fragment() {
                         backgroundTintList = ColorStateList.valueOf(Color.WHITE)
                         scaleX = 0.5f
                         scaleY = 0.5f
+
+
                         setOnClickListener {
                             val actionModel = "models/${animal.name}-$animationName.glb".lowercase()
                             Log.d("AnimationLoad", "Attempting to load: $actionModel")
+
+                            val scaleFactor = if (animal.name.equals("catfish", ignoreCase = true)) 1f else 0.01f
+
                             modelNode.loadModelGlbAsync(
                                 glbFileLocation = actionModel,
                                 autoAnimate = true,
-                                scaleToUnits = 0.01f,
+                                scaleToUnits = scaleFactor,
                                 onError = { exception ->
                                     Log.e("AnimationLoadError", "Error loading $actionModel: ${exception.message}")
                                     Toast.makeText(requireContext(), "Error loading animation: $animationName", Toast.LENGTH_SHORT).show()

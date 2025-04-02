@@ -188,7 +188,7 @@ class ObjectDetectionFragment : Fragment() {
         val model =
             MultipartBody.Part.createFormData("model", "https://hub.ultralytics.com/models/C6mfCvPhbTsJLR07Nvx5")
         val imgsz = MultipartBody.Part.createFormData("imgsz", "640")
-        val conf = MultipartBody.Part.createFormData("conf", "0.90")
+        val conf = MultipartBody.Part.createFormData("conf", "0.75")
         val iou = MultipartBody.Part.createFormData("iou", "0.45")
 
         // Prepare the file part
