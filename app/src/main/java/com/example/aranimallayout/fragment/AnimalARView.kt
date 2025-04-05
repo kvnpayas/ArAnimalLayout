@@ -272,7 +272,11 @@ class AnimalARView : Fragment() {
                             val actionModel = "models/${animal.name}-$animationName.glb".lowercase()
                             Log.d("AnimationLoad", "Attempting to load: $actionModel")
 
-                            val scaleFactor = if (animal.name.equals("catfish", ignoreCase = true)) 1f else 0.01f
+                            val scaleFactor = when {
+                                animal.name.equals("catfish", ignoreCase = true) -> 1f
+                                animal.name.equals("monkey-eat", ignoreCase = true) -> 0.1f // Example scale factor for monkey-eat
+                                else -> 0.01f
+                            }
 
                             modelNode.loadModelGlbAsync(
                                 glbFileLocation = actionModel,

@@ -180,7 +180,7 @@
         "description": "Catfish are a diverse group of fish known for their whisker-like barbels around their mouths, which resemble a cat's whiskers. They can be found in freshwater habitats such as rivers, lakes, and ponds, as well as some brackish and coastal marine environments. Catfish vary greatly in size, color, and behavior. Some species, like the Walking catfish, are known for their ability to move across land in search of water. Catfish play an important role in their ecosystems by helping to maintain water quality and serving as a food source for other animals.",
         "imageUrl": "fish_catfish",
         "model" : "catfish.glb",
-        "backgroundImage": "pond_bg.glb",
+        "backgroundImage": "river_bg.glb",
         "animations": ["swim"]
       },
       {
@@ -486,7 +486,7 @@
         "description": "Turtles are reptiles characterized by their bony or cartilaginous shells, which protect their bodies. They can be found in various habitats, including oceans, rivers, and land. Turtles come in a variety of sizes, colors, and shapes, depending on their species. They have strong, beak-like jaws and are known for their slow movement and long lifespan. Turtles play an important role in their ecosystems by helping to maintain the balance of their habitats through their feeding and nesting behaviors.",
         "imageUrl": "reptiles_turtles",
         "model" : "turtle.glb",
-        "backgroundImage": "pond_bg.glb",
+        "backgroundImage": "beach_bg.glb",
         "animations": []
       }
     ]
