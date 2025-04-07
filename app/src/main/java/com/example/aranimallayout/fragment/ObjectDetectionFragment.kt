@@ -69,7 +69,7 @@ class ObjectDetectionFragment : Fragment() {
 
 
 
-    private val animalLabels = listOf("Cat", "Chicken", "Dog", "Eagle", "Monkey") // Your 5 animal labels
+    private val animalLabels = listOf("Catfish", "Cat", "Chicken", "Dog", "Duck", "Eagle", "Milkfish", "Monkey", "Tilapia") // Your 9 animal labels
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -182,13 +182,13 @@ class ObjectDetectionFragment : Fragment() {
     }
 
     private fun processImage(bitmap: Bitmap) {
-        val apiKey = "YOUR_API_KEY" // Replace with your API key
+        val apiKey = "461adc14a1da30678afbc86355d309bff1a54ebb6d"
 
         // Prepare the text parts
         val model =
-            MultipartBody.Part.createFormData("model", "https://hub.ultralytics.com/models/C6mfCvPhbTsJLR07Nvx5")
+            MultipartBody.Part.createFormData("model", "https://hub.ultralytics.com/models/IunwNu0cFkeoodq5xL52")
         val imgsz = MultipartBody.Part.createFormData("imgsz", "640")
-        val conf = MultipartBody.Part.createFormData("conf", "0.75")
+        val conf = MultipartBody.Part.createFormData("conf", "0.60")
         val iou = MultipartBody.Part.createFormData("iou", "0.45")
 
         // Prepare the file part

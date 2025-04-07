@@ -72,44 +72,44 @@ class ScanAnimalFragment : Fragment() {
                 }
 
             // Image analysis
-            val imageAnalyzer = ImageAnalysis.Builder()
-                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-                .build()
-                .also {
-                    it.setAnalyzer(cameraExecutor) { imageProxy ->
-                        val result = animalClassifierHelper.classifyImage(imageProxy)
-                        Log.d("ScanAnimalFragment", "Raw FloatArray Output: ${result.joinToString()}")
-                        // Find the index of the maximum value in the FloatArray
-                        val bestClassIndex = result.indices.maxByOrNull { result[it] } ?: -1
-                        val bestConfidence = result.maxOrNull() ?: 0f
-                        val classLabels = listOf("Cat", "Dogs") // Replace with your actual class labels
-                        val resultText = if (bestClassIndex != -1) {
-                            "Result: ${classLabels[bestClassIndex]}\nConfidence: ${String.format("%.2f", bestConfidence * 100)}%"
-                        } else {
-                            "No results"
-                        }
-                        requireActivity().runOnUiThread {
-                            binding.resultTextViews.text = resultText
-                        }
-                        imageProxy.close()
-                    }
-                }
-
-            // Select back camera as a default
-            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-
-            try {
-                // Unbind use cases before rebinding
-                cameraProvider.unbindAll()
-
-                // Bind use cases to camera
-                cameraProvider.bindToLifecycle(
-                    this, cameraSelector, preview, imageAnalyzer
-                )
-
-            } catch (exc: Exception) {
-                Log.e("ScanAnimalFragment", "Use case binding failed", exc)
-            }
+//            val imageAnalyzer = ImageAnalysis.Builder()
+//                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+//                .build()
+//                .also {
+//                    it.setAnalyzer(cameraExecutor) { imageProxy ->
+//                        val result = animalClassifierHelper.classifyImage(imageProxy)
+//                        Log.d("ScanAnimalFragment", "Raw FloatArray Output: ${result.joinToString()}")
+//                        // Find the index of the maximum value in the FloatArray
+//                        val bestClassIndex = result.indices.maxByOrNull { result[it] } ?: -1
+//                        val bestConfidence = result.maxOrNull() ?: 0f
+//                        val classLabels = listOf("Cat", "Dogs") // Replace with your actual class labels
+//                        val resultText = if (bestClassIndex != -1) {
+//                            "Result: ${classLabels[bestClassIndex]}\nConfidence: ${String.format("%.2f", bestConfidence * 100)}%"
+//                        } else {
+//                            "No results"
+//                        }
+//                        requireActivity().runOnUiThread {
+//                            binding.resultTextViews.text = resultText
+//                        }
+//                        imageProxy.close()
+//                    }
+//                }
+//
+//            // Select back camera as a default
+//            val cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
+//
+//            try {
+//                // Unbind use cases before rebinding
+//                cameraProvider.unbindAll()
+//
+//                // Bind use cases to camera
+//                cameraProvider.bindToLifecycle(
+//                    this, cameraSelector, preview, imageAnalyzer
+//                )
+//
+//            } catch (exc: Exception) {
+//                Log.e("ScanAnimalFragment", "Use case binding failed", exc)
+//            }
 
         }, ContextCompat.getMainExecutor(requireContext()))
     }
