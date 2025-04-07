@@ -1,4 +1,4 @@
-package com.example.aranimallayout.fragment
+﻿package com.example.aranimallayout.fragment
 
 import android.animation.ObjectAnimator
 import android.content.ContentValues
@@ -274,7 +274,7 @@ class AnimalARView : Fragment() {
 
                             val scaleFactor = when {
                                 animal.name.equals("catfish", ignoreCase = true) -> 1f
-                                animal.name.equals("monkey-eat", ignoreCase = true) -> 0.1f // Example scale factor for monkey-eat
+                                animal.name.equals("Monkey", ignoreCase = true) && animationName.equals("eat", ignoreCase = true) -> 0.5f
                                 else -> 0.01f
                             }
 
