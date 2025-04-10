@@ -32,7 +32,8 @@
             android:backgroundTint="@color/accent"
             android:orientation="vertical"
             android:text="Capture"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:textColor="@color/black"/>
 
         <LinearLayout
             android:id="@+id/loading_state_container"
@@ -75,14 +76,15 @@
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/accent"
                 android:text="Capture Again"
-                android:visibility="visible" />
+                android:visibility="visible"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/resultTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:visibility="visible" />
@@ -92,7 +94,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:visibility="visible" />
@@ -104,7 +106,8 @@
                 android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/accent"
                 android:text="View Details"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:textColor="@color/black"/>
 
 
         </LinearLayout>
