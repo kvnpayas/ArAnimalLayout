@@ -121,6 +121,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Scientific Name"
                                 android:textSize="14sp"
+                                android:textColor="@color/black"
                                 android:paddingStart="8dp"
                                 android:textStyle="bold" />
 
@@ -145,6 +146,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Tagalog Name"
                                 android:textSize="14sp"
+                                android:textColor="@color/black"
                                 android:paddingStart="8dp"
                                 android:textStyle="bold" />
 
@@ -170,6 +172,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:text="Animal Description"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -213,6 +216,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:text="Sound Description"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -230,6 +234,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:text="Animal Fun Fact"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
                 <TextView
@@ -247,6 +252,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="14dp"
                     android:text="Animal Life Span"
+                    android:textColor="@color/black"
                     android:textSize="16sp" />
 
             </LinearLayout>

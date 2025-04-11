@@ -43,6 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="12sp"
+                    android:textColor="@color/black"
                     android:text="This is the description of the animal." />
 
                 <TextView
@@ -60,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="12sp"
+                    android:textColor="@color/black"
                     android:text="This is the fun fact of the animal." />
 
                 <TextView
@@ -77,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="12sp"
+                    android:textColor="@color/black"
                     android:text="This is the sound description of the animal." />
 
                 <TextView
@@ -94,6 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textSize="12sp"
+                    android:textColor="@color/black"
                     android:text="This is the life span of the animal." />
 
             </LinearLayout>
